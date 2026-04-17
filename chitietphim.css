@@ -1,0 +1,182 @@
+/* Thiết lập cơ bản */
+body {
+    background-color: #0f172a; /* Màu nền tối của trang web */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Khung Modal */
+.modal-container {
+    background-color: #1e293b; /* Màu nền xanh đậm của khung */
+    width: 800px;
+    border-radius: 15px;
+    position: relative;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Nút đóng (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+/* Chia bố cục 2 cột */
+.modal-content {
+    display: flex;
+    gap: 30px;
+}
+
+/* Cột Poster */
+.poster img {
+    width: 280px;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Cột Thông tin */
+.info {
+    flex: 1;
+}
+
+.info h1 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #ffffff;
+}
+
+/* Các biểu tượng meta */
+.meta {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #cbd5e1;
+    display: flex;
+    gap: 15px;
+}
+
+/* Đoạn mô tả */
+.description {
+    line-height: 1.6;
+    font-size: 15px;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+/* Nút bấm */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-buy {
+    background-color: #ef4444; /* Màu đỏ */
+}
+
+.btn-trailer {
+    background-color: #ef4444;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Thành phần đoàn phim */
+.credits p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #94a3b8;
+}
+
+
+/* Nền mờ bao phủ toàn màn hình */
+.modal {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Khung nội dung chính */
+.modal-container {
+    background-color: #1e293b;
+    width: 850px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    color: white;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+.modal-content {
+    display: flex;
+    gap: 30px;
+}
+
+.modal-left img {
+    width: 280px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.modal-right h1 { margin-top: 0; color: #fff; }
+
+.modal-meta {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.modal-desc { line-height: 1.6; color: #cbd5e1; }
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-buy, .btn-trailer {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ef4444;
+    color: white;
+    font-weight: bold;
+}
