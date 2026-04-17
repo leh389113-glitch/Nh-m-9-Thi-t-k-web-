@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Register</title>
+  <link rel="stylesheet" href="login-register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <div class="type">
+                <button class="button active" onclick="showLogin()">Đăng nhập</button>
+                <button class="button" onclick="showRegister()">Đăng kí</button>
+            </div>
+        <form id="loginForm" class="form active">
+            <h2>Đăng nhập</h2>
+            <input id="loginUsername" type="text" placeholder="Tên đăng nhập">
+            <input id="loginPassword" type="password" placeholder="Mật khẩu">
+            <button type="button" class="submit" onclick="login()">Đăng nhập</button>
+        </form>
+        <form id="registerForm" class="form">
+            <h2>Đăng kí</h2>
+            <input id="registerUsername" type="text" placeholder="Tên Đăng nhập">
+            <input id="registerEmail" type="email" placeholder="Email">
+            <input id="registerPassword" type="password" placeholder="Mật khẩu">
+            <button type="submit" class="submit" onclick="register()">Đăng kí</button>
+        </form>
+        </div>
+
+    </div>
+
+
+<script src="phim.js"></script>
+</body>
+</html>
