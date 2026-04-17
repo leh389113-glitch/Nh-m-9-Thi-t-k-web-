@@ -1,14 +1,20 @@
 const cinemaData = {
   "Hồ Chí Minh": [
-    { name: "KOF Aeon Tân Phú", times: ["12:10", "13:50", "16:10", "18:30"] },
-    { name: "KOF Menas Mall", times: ["12:40", "15:00", "17:20", "21:10"] },
+    {
+      name: "Topphim Aeon Tân Phú",
+      times: ["12:10", "13:50", "16:10", "18:30"],
+    },
+    { name: "Topphim Menas Mall", times: ["12:40", "15:00", "17:20", "21:10"] },
   ],
   "Hà Nội": [
-    { name: "KOF Vincom Nguyễn Chí Thanh", times: ["09:00", "11:30", "14:00"] },
-    { name: "KOF Rice City", times: ["10:15", "13:45", "19:00"] },
+    {
+      name: "Topphim Vincom Nguyễn Chí Thanh",
+      times: ["09:00", "11:30", "14:00"],
+    },
+    { name: "Topphim Rice City", times: ["10:15", "13:45", "19:00"] },
   ],
   "Đà Nẵng": [
-    { name: "KOF Vincom Đà Nẵng", times: ["12:00", "15:30", "20:00"] },
+    { name: "Topphim Vincom Đà Nẵng", times: ["12:00", "15:30", "20:00"] },
   ],
 };
 
