@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đặt vé xem phim Topphim</title>
     <link rel="stylesheet" href="datve.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
     <div id="date-list-container" class="date-container"></div>
@@ -66,9 +67,6 @@
         <div id="summary-details" class="summary-details"></div>
         <div class="summary-subtotal" id="summary-subtotal">0 đ</div>
 
-        <div class="summary-title">Khuyến mãi</div>
-        <div class="summary-subtotal">0 đ</div>
-
         <div class="summary-total-title">Tổng số tiền thanh toán</div>
         <div class="summary-final-total" id="summary-final">0 đ</div>
       </div>
@@ -78,20 +76,27 @@
         <div class="method-list">
           <label class="method-item">
             <input type="radio" name="payment-method" checked />
-            <span>ATM card (Thẻ nội địa)</span>
+            <i class="fa-solid fa-credit-card"></i><span>ATM card (Thẻ nội địa)</span>
           </label>
+          <br>
+          <br>
           <label class="method-item">
             <input type="radio" name="payment-method" />
-            <span>Thẻ quốc tế (Visa, Master, Amex, JCB)</span>
+            <i class="fa-brands fa-cc-visa"></i><span>Thẻ quốc tế (Visa, Master, Amex, JCB)</span>
           </label>
+          <br>
+          <br>
           <label class="method-item">
             <input type="radio" name="payment-method" />
-            <span>MoMo</span>
+            <i class="fa-solid fa-mobile-screen-button"></i><span>MoMo</span>
           </label>
+          <br>
+          <br>
           <label class="method-item">
             <input type="radio" name="payment-method" />
-            <span>ZaloPay</span>
+            <i class="fa-solid fa-mobile-screen-button"></i><span>ZaloPay</span>
           </label>
+          <br>
         </div>
       </div>
     </div>

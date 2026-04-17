@@ -242,74 +242,83 @@
   padding-bottom: 120px;
 }
 
-/* Bảng Tổng Kết */
 .payment-summary-box {
-  background-color: #e06767;
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
+  border: 1px solid #eee;
 }
+
 .summary-title {
-  text-align: center;
-  font-weight: bold;
-  padding: 15px;
-  border-bottom: 1px solid #eadca6;
+  background-color: #f8f9fa;
+  color: #333;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
 }
+
 .summary-details {
-  padding: 15px;
+  padding: 20px;
+  background: #fff;
 }
+
 .detail-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
-  color: #333;
+  padding: 8px 0;
+  color: #666;
+  font-size: 15px;
 }
+
 .summary-subtotal {
-  background-color: #d8d8d8;
-  text-align: center;
+  background-color: #fff;
+  text-align: right;
+  padding: 10px 20px;
   font-weight: bold;
-  font-size: 18px;
-  padding: 15px;
+  color: #e51a1a;
+  border-bottom: 1px dashed #ddd;
 }
+
 .summary-total-title {
-  background-color: #e51a1a;
-  color: white;
-  text-align: center;
-  font-weight: bold;
+  background-color: #1a1a1a;
+  color: #fff;
   padding: 15px;
   font-size: 16px;
 }
+
 .summary-final-total {
-  background-color: #d8d8d8;
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 15px;
+  background-color: #fff;
+  color: #e51a1a;
+  font-size: 28px;
+  font-weight: 800;
+  padding: 20px;
 }
 
-/* Bảng Phương Thức Thanh Toán */
+/* Phần phương thức thanh toán */
 .payment-methods-box {
-  background-color: #fcf5e2;
-  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
+
 .method-title {
-  background-color: #d8d8d8;
-  padding: 10px 15px;
-  font-weight: bold;
-  font-style: italic;
+  background: #f8f9fa;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  border-radius: 12px 12px 0 0;
 }
-.method-list {
-  padding: 10px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+
 .method-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
+  padding: 15px 20px;
+  border-bottom: 1px solid #f9f9f9;
+  transition: background 0.3s;
 }
-.method-item input {
-  transform: scale(1.2);
-  cursor: pointer;
+
+.method-item:hover {
+  background: #fff9f9;
 }
