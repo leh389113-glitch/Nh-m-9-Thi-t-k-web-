@@ -1,476 +1,610 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topfilm - Xem Phim Chất Lượng Cao miễn phí</title>
-    <link href="TopPhim.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
+    <link href="TopPhim.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 
-  <body>
-    <header>
-      <div class="header-container">
+
+
+<body>
+
+<div id="movieModal" class="modal">
+    <div class="modal-box">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+
+        <div class="modal-content">
+            <div class="modal-img">
+                <img src="">
+            </div>
+
+            <div class="modal-info">
+                <h2>Title</h2>
+
+                <div class="meta"></div>
+
+                <p></p>
+                <button class="btn-buy" onclick="goToBooking()">🎟 Mua vé</button>
+                <button class="btn-buy" onclick="gotoTrailer()">Trailer ▶</button>
+
+                <div class="meta-x"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<header>
+    <div class="header-container">
         <a href="#" class="logo">
-          <i class="fas fa-film"></i>
-          Topfilm.
+            <i class="fas fa-film"></i>
+            Topfilm.
         </a>
 
         <nav>
-          <ul>
-            <li><a href="#" class="active">Trang chủ</a></li>
-            <li><a href="#">Phim </a></li>
-            <li><a href="#">Rạp phim</a></li>
-            <li><a href="#">Suất chiếu</a></li>
-          </ul>
+            <ul>
+                <li><a href="#" class="active">Trang chủ</a></li>
+                <li><a href="#">Phim </a></li>
+                <li><a href="#">Rạp phim</a></li>
+                <li><a href="#">Suất chiếu</a></li>
+                <li><a href="lich_su_uu_dai.html">Lịch sử & ưu đãi</a></li>
+            </ul>
         </nav>
 
         <div class="search-box">
-          <input type="text" placeholder="Tìm kiếm phim..." />
-          <button><i class="fas fa-search"></i></button>
+            <input id="searchInput" type="text" placeholder="Tìm kiếm phim...">
+            <button><i class="fas fa-search"></i></button>
         </div>
 
         <div class="user-actions">
-          <button id="log-in">Đăng nhập</button>
-          <button id="sign-up">Đăng ký</button>
+            <button id="log-in">Đăng nhập</button>
+            <button id="sign-up">Đăng ký</button>
         </div>
-      </div>
-    </header>
+    </div>
+</header>
 
-    <section class="hero">
-      <div class="hero-slide active">
-        <img src="anh/songhy.png" alt="Hero 1" />
+<section class="hero">
+    <div class="hero-slide active">
+        <img src="anh/songhy.png" alt="Hero 1">
 
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-          <span class="hero-badge">HOT</span>
+            <span class="hero-badge">HOT</span>
 
-          <h1 class="hero-title">Song hỷ Lâm nguy</h1>
+            <h1 class="hero-title">Song hỷ Lâm nguy</h1>
 
-          <div class="hero-meta">
-            <span><i class="fas fa-star" style="color: #ffd700"></i> 7.6</span>
-            <span><i class="fas fa-clock"></i> 113 phút</span>
-            <span><i class="fas fa-calendar"></i> 03/04/2026</span>
-            <span><i class="fas fa-globe"></i> Việt Nam</span>
-          </div>
-
-          <p class="hero-description">
-            Hai lễ cưới, một sang trọng sa hoa, một đạm bạc dân dã, đáng lý sẽ
-            được tổ chức đối diện nhau. Rắc rối bắt đầu khi đội ngũ tổ chức của
-            hai lễ cưới phát hiện ra danh sách khách mời của hai bên là giống
-            nhau. - Đạo diễn: Vũ Hà - Diễn viên: Dustin Nguyễn, Misthy, Trung
-            Anh, Đinh Y Nhung, Jun Vũ, Hoàng Phi, Hynee, Khoai Vũ
-          </p>
-
-          <div class="hero-buttons">
-            <button class="btn btn-play">
-              <i class="fas fa-play"></i>
-              <a href="./datve/datve.html">Mua vé</a>
-            </button>
-
-            <button class="btn btn-info">
-              <i class="fas fa-info-circle"></i> Chi tiết
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <main>
-      <div class="category-tabs">
-        <button class="category-tab active">Tất cả</button>
-        <button class="category-tab">Hành động</button>
-        <button class="category-tab">Kinh dị</button>
-        <button class="category-tab">Tình cảm</button>
-        <button class="category-tab">Hài hước</button>
-        <button class="category-tab">Viễn tưởng</button>
-        <button class="category-tab">Hoạt hình</button>
-        <button class="category-tab">Tâm lý</button>
-        <button class="category-tab">Phiêu lưu</button>
-      </div>
-
-      <!--phim đề xuất -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-fire"></i> Phim Hot Trong Tuần
-          </h2>
-          <a href="#" class="view-all">
-            Trang chủ <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-
-        <div class="movie-grid" id="hotMovies">
-          <div class="movie-card">
-            <img
-              src="anh/anhduongcuame.png"
-              alt="ánh dương của mẹ"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 30px">
-              Ánh dương của mẹ - Vietsub
-            </h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/demngayxame.png"
-              alt="đếm ngày xa mẹ"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 30px">
-              Đếm ngày xa mẹ - Vietsub
-            </h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/vungdatluanhoi.png"
-              alt="vùng đất luân hồi"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 30px">
-              Vùng đất luân hồi - Vietsub
-            </h3>
-          </div>
-        </div>
-      </section>
-
-      <!-- Đang khởi chiếu -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-trophy"></i> Phim đang khởi chiếu
-          </h2>
-        </div>
-
-        <div class="movie-grid">
-          <div class="movie-card">
-            <img
-              src="anh/quy.png"
-              alt="quỷ ta kon"
-              width="200px"
-              style="margin-left: 20px"
-            />
-            <h3 class="movie-title" style="margin: 15px">
-              TA KHON - Quỷ đội lốt người
-            </h3>
-          </div>
-
-          <div class="movie-card">
-            <img
-              src="anh/duoibongdienha.png"
-              alt="Dưới Bóng Điện Hạ"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 25px; margin-top: 8px">
-              Dưới bóng điện hạ - vietsub
-            </h3>
-          </div>
-
-          <div class="movie-card">
-            <img src="anh/mario.png" alt="mario" width="225px" height="310px" />
-            <h3 class="movie-title" style="margin-left: 30px">
-              Super mario - Thiên hà
-            </h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/baytien.png"
-              alt="bẫy tiền"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 30px">
-              Bẫy tiền - Cú lừa tiền tỷ
-            </h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/kiki.png"
-              alt="Phù thủy KIKI"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title">Dịch vụ giao hàng của phù thủy KIKI</h3>
-          </div>
-          <div class="movie-card">
-            <img src="anh/drama.png" alt="drama" width="225px" height="310px" />
-            <h3 class="movie-title" style="margin-left: 30px">
-              Drama - Cú sốc
-            </h3>
-          </div>
-        </div>
-      </section>
-
-      <!-- Phim sắp chiếu -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-tv"></i> Phim Sắp chiếu
-          </h2>
-          <a href="#" class="view-all">
-            Xem tất cả <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-
-        <div class="movie-grid">
-          <div class="movie-card">
-            <img
-              src="anh/trangmau.png"
-              alt="TRăng máu"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 25px">
-              Đại tiệc trăng máu 8
-            </h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/heonammong.png"
-              alt="heo năm móng"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 35px">Heo năm móng</h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/rufus.png"
-              alt="thủy quái rufus"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 30px">
-              RUFUS: Thủy quái học bơi
-            </h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/michael.png"
-              alt="Michael"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 20px">
-              MICHAEL - khởi đầu của 1 biểu tượng
-            </h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/anhhung.png"
-              alt="Anh hùng"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 40%">Anh hùng</h3>
-          </div>
-          <div class="movie-card">
-            <img
-              src="anh/marsupilami.png"
-              alt="siêu quậy marsupilami"
-              width="225px"
-              height="310px"
-            />
-            <h3 class="movie-title" style="margin-left: 35px">
-              Siêu quậy marsupilami
-            </h3>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-film"></i> Khám Phá Phim
-          </h2>
-        </div>
-
-        <div class="content-wrapper">
-          <aside class="sidebar">
-            <div class="filter-group">
-              <h3 class="filter-title"><i class="fas fa-tags"></i> Thể loại</h3>
-
-              <div class="filter-options">
-                <label class="filter-option">
-                  <input type="checkbox" />
-                  <span>Bom tấn</span>
-                  <span class="filter-count">215</span>
-                </label>
-
-                <label class="filter-option">
-                  <input type="checkbox" />
-                  <span>Kinh dị</span>
-                  <span class="filter-count">145</span>
-                </label>
-
-                <label class="filter-option">
-                  <input type="checkbox" />
-                  <span>Tình cảm</span>
-                  <span class="filter-count">142</span>
-                </label>
-
-                <label class="filter-option">
-                  <input type="checkbox" />
-                  <span>Viễn tưởng</span>
-                  <span class="filter-count">110</span>
-                </label>
-              </div>
+            <div class="hero-meta">
+                <span><i class="fas fa-star" style="color: #ffd700;"></i> 8.6</span>
+                <span><i class="fas fa-clock"></i> 113 phút</span>
+                <span><i class="fas fa-calendar"></i> 03/04/2026</span>
+                <span><i class="fas fa-globe"></i> Việt Nam</span>
             </div>
 
-            <div class="filter-group">
-              <h3 class="filter-title"><i class="fas fa-globe"></i>khu vực</h3>
-
-              <div class="filter-options">
-                <label class="filter-option">
-                  <input type="checkbox" />
-                  <span>quận Đống Đa</span>
-                  <span class="filter-count">7</span>
-                </label>
-
-                <label class="filter-option">
-                  <input type="checkbox" />
-                  <span>quận Hai Bà Trưng</span>
-                  <span class="filter-count">12</span>
-                </label>
-
-                <label class="filter-option">
-                  <input type="checkbox" />
-                  <span>quận Cầu Giấy</span>
-                  <span class="filter-count">17</span>
-                </label>
-
-                <label class="filter-option">
-                  <input type="checkbox" />
-                  <span>quận Thanh Xuân</span>
-                  <span class="filter-count">8</span>
-                </label>
-              </div>
-            </div>
-
-            <button class="btn btn-primary" style="width: 100%">
-              <i class="fas fa-filter"></i> bộ lọc phim
-            </button>
-          </aside>
-
-          <div class="movie-grid" id="movie-rating">
-            <div class="movie-card">
-              <img
-                src="anh/chuyentinh.png"
-                alt="Ngày xưa có 1 chuyện tình"
-                width="225px"
-                height="410px"
-              />
-              <h3 class="movie-title" style="margin-left: 15px">
-                Ngày xưa có một chuyện tình
-              </h3>
-            </div>
-            <div class="movie-card">
-              <img
-                src="anh/nhabanu.png"
-                alt="Nhà Bà nữ"
-                width="225px"
-                height="410px"
-              />
-              <h3 class="movie-title" style="margin-left: 35%">Nhà Bà Nữ</h3>
-            </div>
-            <div class="movie-card">
-              <img
-                src="anh/uochenlangchai.png"
-                alt="ước hẹn làng chài"
-                width="225px"
-                height="410px"
-              />
-              <h3 class="movie-title" style="margin-left: 35px">
-                Ước hẹn làng chài
-              </h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <a href="#" class="view-all">
-            Trang Chủ<i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      </section>
-      <hr />
-    </main>
-
-    <footer>
-      <div class="footer-container">
-        <div class="footer-grid">
-          <div class="footer-section">
-            <h3>Topfilm</h3>
-            <p style="color: rgba(255, 255, 255, 0.6); line-height: 1.8">
-              Topfilm là trang web miễn phí chất lượng cao, vietsub, thuyết minh
-              phụ đề chuẩn cho nhiều lứa tuổi.
+            <p class="hero-description">
+                Hai lễ cưới, một sang trọng sa hoa, một đạm bạc dân dã, đáng lý sẽ được tổ chức đối diện nhau.
+                Rắc rối bắt đầu khi đội ngũ tổ chức của hai lễ cưới phát hiện ra danh sách khách mời của hai bên là giống nhau.
+                - Đạo diễn: Vũ Hà - Diễn viên: Dustin Nguyễn, Misthy, Trung Anh, Đinh Y Nhung, Jun Vũ, Hoàng Phi, Hynee, Khoai Vũ
             </p>
 
-            <div class="social-links" style="margin-top: 20px">
-              <a href="#" class="social-link"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-link"
-                ><i class="fab fa-instagram"></i
-              ></a>
+            <div class="hero-buttons">
+                <button class="btn btn-play" onclick="goToBooking()">
+                    <i class="fas fa-play"></i> Mua vé
+                </button>
+
+                <button class="btn btn-info">
+                    <i class="fas fa-info-circle"></i> Chi tiết
+                </button>
             </div>
-          </div>
+        </div>
+    </div>
+</section>
 
-          <div class="footer-section">
-            <h3>Thể loại phim</h3>
-            <ul>
-              <li><a href="#">Phim Hành Động</a></li>
-              <li><a href="#">Phim Kinh Dị</a></li>
-              <li><a href="#">Phim Tình Cảm</a></li>
-              <li><a href="#">Phim Hài kịch</a></li>
-              <li><a href="#">Phim Viễn Tưởng</a></li>
-            </ul>
-          </div>
+<main>
 
-          <div class="footer-section">
-            <h3>Khu vực</h3>
-            <ul>
-              <li><a href="#">quận Đống Đa</a></li>
-              <li><a href="#">quận Hai Bà Trưng</a></li>
-              <li><a href="#">Phim Cầu Giấy</a></li>
-              <li><a href="#">quận Thanh Xuân</a></li>
-              <li><a href="#">quận Hoàng mai</a></li>
-            </ul>
-          </div>
+<div class="category-tabs">
+    <button class="category-tab active">Tất cả</button>
+    <button class="category-tab">Hành động</button>
+    <button class="category-tab">Kinh dị</button>
+    <button class="category-tab">Tình cảm</button>
+    <button class="category-tab">Hài hước</button>
+    <button class="category-tab">Viễn tưởng</button>
+    <button class="category-tab">Hoạt hình</button>
+    <button class="category-tab">Tâm lý</button>
+    <button class="category-tab">Phiêu lưu</button>
+</div>
 
-          <div class="footer-section">
-            <h3>Hỗ trợ</h3>
-            <ul>
-              <li><a href="#">Liên hệ</a></li>
-              <li><a href="#">Điều khoản sử dụng</a></li>
-              <li><a href="#">Chính sách bảo mật</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Báo lỗi</a></li>
-              <li>
-                <a href="#"
-                  >địa chỉ liên kết: http://127.0.0.1:5500/TopPhim.html
-                </a>
-              </li>
-            </ul>
-          </div>
+<!--phim đề xuất -->
+<section class="section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="fas fa-fire"></i> Phim Hot Trong Tuần
+        </h2>
+        <a href="#" class="view-all">
+            Trang chủ <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+
+    <div class="movie-grid" id="hotMovies">
+        <div class="movie-card" onclick="openModal(this)"
+            data-title="Super Mario - Thiên hà"
+            data-img="anh/anhduongcuame.png"
+            data-time="99 phút"
+            data-country="Trung Quốc"
+            data-rate="8.2"
+            data-date="03/04/2026"
+            data-desc="Trong không gian ngột ngạt của một nhà tù nữ, một mầm sống mới đã nảy mầm: một bé gái chào đời giữa tiếng hát mừng sinh nhật và vòng tay của bốn nữ tù nhân. Mỗi người phụ nữ ấy đều mang một bản án và một quá khứ đầy vết sẹo, nhưng sự xuất hiện của đứa trẻ đã trở thành tia sáng duy nhất sưởi ấm tâm hồn họ. Mọi chuyện trở nên xáo trộn khi một tù nhân mới đầy nổi loạn gia nhập nhóm. Từ những va chạm, mâu thuẫn nảy lửa ban đầu, sự hiện diện ngây thơ của bé gái đã dần xóa tan khoảng cách, biến những con người xa lạ thành một gia đình đặc biệt. Hạnh phúc ngắn chẳng được bao lâu khi đứa trẻ được chẩn đoán mắc một căn bệnh hiểm nghèo về mắt, đe dọa sẽ lấy đi ánh sáng vĩnh viễn. Để dành tặng em một kỷ niệm cuối cùng thật trọn vẹn, những người mẹ không cùng huyết thống đã quyết định thành lập một dàn đồng ca ngay sau song sắt. Dựa trên câu chuyện có thật đầy xúc động, đạo diễn Gavin Lin đã nhào nặn nên một thước phim tâm lý đầy cảm xúc, đan xen khéo léo giữa tiếng cười rộn rã, âm nhạc chữa lành và hành trình tìm lại bản ngã, hướng thiện của những con người từng lầm lỗi."
+            data-director="Đạo diễn: Gavin LIN"
+            data-actor="Diễn viên:  Judy Ongg, CHEN Yi-Han, SUN Shu-May, Amber An, CHUNG Hsin-Ling">
+            <img src="anh/anhduongcuame.png" alt="ánh dương của mẹ" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:30px">
+                Ánh dương của mẹ - Vietsub
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)"
+            data-title="Đếm ngày xa mẹ"
+            data-img="anh/demngayxame.png"
+            data-time="109 phút"
+            data-country="Hàn Quốc"
+            data-rate="9.3"
+            data-date="20/03/2026"
+            data-desc="Đếm Ngày Xa Mẹ xoay quanh cặp mẹ con Eun-sil (Jang Hye-jin) và Ha-min (Choi Woo-shik). Mỗi lần ăn một món do mẹ nấu, Ha-min lại nhìn thấy một con số khó lý giải. Sau mỗi bữa ăn, con số ấy giảm đi một đơn vị. Ha-min sớm nhận ra một sự thật kinh hoàng: khi con số chạm về 0, mẹ anh sẽ qua đời. Kể từ đó, cuộc sống bình thường của Ha-min bị đảo lộn hoàn toàn. Để bảo vệ quãng thời gian còn lại của mẹ, Ha-min bắt đầu tránh xa những bữa cơm nhà, viện đủ mọi lý do để không phải ngồi vào bàn ăn và dần trở nên xa cách với mẹ. Liệu thời gian để Hamin ở bên mẹ còn được bao lâu nữa?"
+            data-director="Đạo diễn: Kim Tae-yong"
+            data-actor="Diễn viên: Choi Woo-shik, Jang Hye-jin, Gong Seung-yeon">
+            <img src="anh/demngayxame.png" alt="đếm ngày xa mẹ" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:30px">
+                Đếm ngày xa mẹ - Vietsub
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)"
+            data-title="Vùng đất luân hồi"
+            data-img="anh/vungdatluanhoi.png"
+            data-time="110 phút"
+            data-country="Trung Quốc"
+            data-rate="8.3"
+            data-date="27/03/2026"
+            data-desc="Lấy bối cảnh tại Cõi Ngoại – cõi trung gian giữa cái chết và sự tái sinh, VÙNG ĐẤT LUÂN HỒI kể về hành trình xuyên suốt ngàn năm của Tiểu Quỷ - kẻ mang nhiệm vụ dẫn dắt các linh hồn để giúp họ buông bỏ ký ức và cảm xúc còn sót lại từ kiếp trước để bước vào vòng luân hồi."
+            data-director="Đạo diễn: Tommy Kai Chung Ng"
+            data-actor="Diễn viên:Suet-Ying Chung; Hiu-Tung Choi; Louis Cheung">
+">
+            <img src="anh/vungdatluanhoi.png" alt="vùng đất luân hồi" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:30px">
+                Vùng đất luân hồi - Vietsub
+            </h3>
+        </div>
+    </div>
+</section>
+
+<!-- Đang khởi chiếu -->
+<section class="section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="fas fa-trophy"></i> Phim đang khởi chiếu
+        </h2>
+    </div>
+
+    <div class="movie-grid">
+
+        <div class="movie-card" onclick="openModal(this)"
+            data-title="TAKHON - quỷ đội lốt người"
+            data-img="anh/quy.png"
+            data-time="99 phút"
+            data-country="Thái Lan"
+            data-rate="7.9"
+            data-date="10/04/2026"
+            data-desc="Khi ngôi nhà mới được xây trên mảnh đất của thần linh, gia đình Joi đã phải lập tức đối mặt với cơn thịnh nộ của Phi Ta Khon (Quỷ Đội Lốt Người). Để giải cứu chính mình và em gái khỏi lời nguyền nghiệt ngã, Joi quyết tâm lật mở sự thật. Thế nhưng, đằng sau chiếc mặt nạ quỷ lại là một bí mật đen tối mà cậu không bao giờ ngờ tới."
+            data-director="Đạo diễn: Puwadon Naosopa"
+            data-actor="Diễn viên:   Mos Panuwat Sopradit, Diana Flipo, Bank Mondop Heamtan, Ploypaphas Fonkaewsiwaporn, Thiti Srinual">
+            <img src="anh/quy.png" alt="quỷ ta kon" width="200px" style="margin-left: 20px">
+            <h3 class="movie-title" style="margin: 15px">
+                TA KHON - Quỷ đội lốt người
+            </h3>
+        </div>
+
+        <div class="movie-card" onclick="openModal(this)"
+            data-title="Dưới bóng điện hạ - vietsub"
+            data-img="anh/duoibongdienha.png"
+            data-time="117 phts"
+            data-country="Hàn quốc"
+            data-rate="8.9"
+            data-date="10/04/2026"
+            data-desc="Lấy mốc năm 1457 dưới triều đại Joseon, Dưới Bóng Điện Hạ khắc họa số phận nghiệt ngã của vua Danjong - vị quân vương thứ sáu của triều đại (Park Ji-hoon thủ vai). Lên ngôi khi tuổi đời còn non trẻ, Danjong nhanh chóng trở thành quân cờ trong vòng xoáy quyền lực tàn khốc. Bị chính người chú lật đổ, phế truất và đày đến vùng Cheongnyeongpo heo hút, cuộc đời của vị vua trẻ rẽ sang một ngã rẽ đầy u uất. Tại chốn lưu đày, ông gặp trưởng làng Eom Heung Do (Yoo Hai-jin thủ vai) - người đã chủ động biến ngôi làng nghèo thành nơi giam giữ nhà vua, đổi lại hy vọng cứu vãn sinh kế cho dân làng. Từ hai thân phận tưởng chừng đối lập, một cựu đế vương và một thường dân, bộ phim dần hé mở mối liên kết lặng lẽ nhưng sâu sắc - nơi lòng trung thành, sự che chở âm thầm và những phận người nhỏ bé cùng trôi dạt giữa cơn sóng lớn của lịch sử."
+            data-director="Đạo diễn:  Chang Hang-jun"
+            data-actor="Diễn viên:  Yoo Hai-jin, Park Ji-hoon, Yoo Ji-tae, Jeon Mi-do ">
+            <img src="anh/duoibongdienha.png" alt="Dưới Bóng Điện Hạ" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left: 25px; margin-top: 8px">
+                Dưới bóng điện hạ - vietsub
+            </h3>
+        </div>
+
+        <div class="movie-card" onclick="openModal(this)"
+            data-title="Super Mario - Thiên hà"
+            data-img="anh/mario.png"
+            data-time="99 phút"
+            data-country="Mỹ"
+            data-rate="8.6"
+            data-date="01/04/2026"
+            data-desc="Phim Super Mario Thiên Hà là một bộ phim hoạt hình được lấy bối cảnh trong thế giới của Anh Em Super Mario và là phần tiếp theo của Phim Anh Em Super Mario tác phẩm ra mắt năm 2023 và đạt doanh thu hơn 1,3 tỷ đô la trên toàn cầu. Cả hai bộ phim Phim Anh Em Super Mario (2023) và Phim Super Mario Thiên Hà"
+            data-director="Đạo diễn: Aaron Horvath, Michael Jelenic"
+            data-actor="Diễn viên:  Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black, Keegan-Michael Key, Benny Safdie, Kevin Michael Richardson và Brie Larson.">
+            <img src="anh/mario.png" alt="Super mario - Thiên hà" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:30px">
+                Super mario - Thiên hà
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)"
+             data-title="Bẫy tiền - Cú lừa tiền tỷ"
+            data-img="anh/baytien.png"
+            data-time="113 phút"
+            data-country="Việt Nam"
+            data-rate="8.4"
+            data-date="10/04/2026"
+            data-desc="Khi một vụ lừa đảo qua điện thoại bất ngờ ập đến, Dang Thuc – người từng tin rằng mình đang nắm trong tay một cuộc sống ổn định – bị cuốn vào một vòng xoáy nguy hiểm xoay quanh tiền bạc, gia đình và lòng tin, nơi mỗi lựa chọn không chỉ đánh đổi bằng tiền bạc mà còn bằng chính những người anh yêu thương."
+            data-director="Đạo diễn:  Oscar Dương"
+            data-actor="Diễn viên:Liên Bỉnh Phát, Tam Triều Dâng, Kiều Oanh, Lê Hải, Mai Cát Vi và một số diễn viên khác" ">
+            <img src="anh/baytien.png" alt="bẫy tiền" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:30px">
+                Bẫy tiền - Cú lừa tiền tỷ
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)"
+             data-title="Dịch vụ giao hàng của phù thủy KIKI"
+            data-img="anh/kiki.png"
+            data-time="103 phút"
+            data-country="Nhật Bản"
+            data-rate="9.4"
+            data-date="10/04/2026"
+            data-desc="Theo truyền thống, khi tròn 13 tuổi, con gái của các phù thủy phải rời xa quê hương để học cách tự lập . Kiki cũng thế, cô lên đường cùng chú mèo đen Jiji, bay đến thị trấn ven biển Koriko xa lạ. Tại đây, cô được một bà chủ tiệm bánh tốt bụng cưu mang và bắt đầu làm phụ tá cho bà, đồng thời cũng bắt đầu mở dịch vụ giao hàng mới bằng chổi bay. Cuộc sống mới mang đến cho Kiki những niềm vui, thất bại và thử thách đầu đời. Xen giữa hành trình ấy là tình bạn với Tombo - cậu bé có đam mê mãnh liệt với máy bay chạy bằng sức người. Tất cả đã giúp Kiki từng bước trưởng thành và hòa nhập với thị trấn biển đầy gió này."
+            data-director="Đạo diễn: Hayao Miyazaki"
+            data-actor="Diễn viên:  ">
+            <img src="anh/kiki.png" alt="Phù thủy KIKI" width="225px" height="310px">
+            <h3 class="movie-title" >
+                Dịch vụ giao hàng của phù thủy KIKI
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)"
+             data-title="Drama - Cú sốc"
+            data-img="anh/drama.png"
+            data-time="  105 phút"
+            data-country="Mỹ"
+            data-rate="8.4"
+            data-date="10/04/2026"
+            data-desc="Chuyện tình hoàn hảo của Emma (Zendaya) và Charlie (Robert Pattinson) bỗng vỡ vụn ngay trước thềm đám cưới. Một biến cố đen tối đột ngột ập đến bóc trần những dối trá kinh hoàng, đẩy cả hai vào mê cung của sự hoang mang và nghi kỵ. Khi sự thật được phơi bày, ranh giới giữa người bạn đời lý tưởng và một kẻ xa lạ đáng sợ trở nên mỏng manh hơn bao giờ hết."
+            data-director="Đạo diễn:  Kristoffer Borgli"
+            data-actor="Diễn viên: Zendaya, Robert Pattinson, Alana Haim, Mamoudou Athie, Hailey Gates,...">
+            <img src="anh/drama.png" alt="drama" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:30px">
+                Drama - Cú sốc
+            </h3>
+        </div>
+        
+
+    </div>
+
+
+</section>
+
+<!-- Phim sắp chiếu -->
+<section class="section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="fas fa-tv"></i> Phim Sắp chiếu
+        </h2>
+        <a href="#" class="view-all">
+            Xem tất cả <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+
+    <div class="movie-grid">
+        <div class="movie-card" onclick="openModal(this)"
+             data-title="Đại tiệc trăng máu 8"
+            data-img="anh/trangmau.png"
+            data-time="130 phút"
+            data-country="Việt Nam"
+            data-rate="0"
+            data-date="24/04/2026"
+            data-desc="Đại Tiệc Trăng Máu 8 theo chân một vị đạo diễn hay bị coi thường (Vân Sơn đóng) trong dự án thử thách nhất đời ông: thực hiện một bộ phim dài 35 phút chỉ với một cú máy. Hàng loạt tình huống dở khóc dở cười xảy ra khi các diễn viên liên tục gây chuyện “khó đỡ”. Thế nhưng, việc hoàn thành tác phẩm là cơ hội cuối cùng để ông giành lại sự tôn trọng từ cô con gái đam mê nghệ thuật. Quy tụ dàn sao đình đám nhất điện ảnh Việt, Đại Tiệc Trăng Máu 8 ấn định lịch khai tiệc vào 24.04.2026, chiếu xuyên Đại lễ Giỗ Tổ Hùng Vương & 30.04.2026."
+            data-director="Đạo diễn:  Phan Gia Nhật Linh"
+            data-actor="Diễn viên: Vân Sơn, Lê Khánh, Miu Lê, Liên Bỉnh Phát, Quốc Khánh, Quỳnh Lý, Lâm Thanh Mỹ...">
+            <img src="anh/trangmau.png" alt="TRăng máu" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:25px">
+                Đại tiệc trăng máu 8
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)" 
+             data-title="Heo năm móng"
+            data-img="anh/heonammong.png"
+            data-time="103 phút"
+            data-country="Việt Nam"
+            data-rate="0"
+            data-date=" 24/04/2026"
+            data-desc="“Heo Năm Móng” được lấy cảm hứng từ một trong những truyền thuyết linh dị huyền bí của cộng đồng người Khmer ở khu vực miền Tây để bật lên thông điệp về nghiệp - quả, về những hệ luỵ khôn lường khi sử dụng niềm tin tín ngưỡng sai chỗ."
+            data-director="Đạo diễn:Lưu Thành Luân "
+            data-actor="Diễn viên: Võ Tấn Phát, Trần Ngọc Vàng, NSƯT Ốc Thanh Vân, Nghệ Sĩ Thanh Thủy,...">
+            <img  src="anh/heonammong.png" alt="heo năm móng" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:35px">
+                Heo năm móng
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)"
+             data-title="Người nhện - khởi đầu mới"
+            data-img="anh/nguoinhen.png"
+            data-time="122 phút"
+            data-country="Mỹ"
+            data-rate="0"
+            data-date="31/07/2026"
+            data-desc="Không còn Tony Stark, MJ hay Ned kề cận, Peter buộc phải đơn thân độc mã đối diện với phe đối đầu bí ẩn. Tuy nhiên, khi áp lực ngày càng gia tăng, nó kích hoạt một sự biến đổi thể chất bất ngờ, đe dọa chính sự tồn tại của anh. Đồng thời, một chuỗi tội phạm bí ẩn mới xuất hiện, kéo theo một trong những mối đe dọa mạnh mẽ nhất mà Spider-Man từng đối mặt."
+            data-director="Đạo diễn:  Destin Daniel Cretton"
+            data-actor="Diễn viên:   Tom Holland, Zendaya, Sadie Sink">
+            <img src="anh/nguoinhen.png" alt="Người nhện - khởi đầu mới" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:30px">
+                Người nhện - khởi đầu mới
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)" 
+             data-title="MICHAEL - khởi đầu của 1 biểu tượng"
+            data-img="anh/michael.png"
+            data-time="127 phút"
+            data-country="Mỹ"
+            data-rate="0"
+            data-date="24/04/2026"
+            data-desc="Michael là bức chân dung điện ảnh khắc họa cuộc đời và di sản của một trong những nghệ sĩ có sức ảnh hưởng lớn nhất mà thế giới từng biết đến. Bộ phim kể về cuộc đời của Michael Jackson ngoài âm nhạc, theo dấu hành trình từ khi tài năng phi thường của ông được phát hiện trong vai trò giọng ca chính của nhóm Jackson Five, cho đến khi ông trở thành một nghệ sĩ có tầm nhìn xa, với khát vọng sáng tạo không ngừng để vươn tới danh hiệu “ngôi sao giải trí vĩ đại nhất thế giới”."
+            data-director="Đạo diễn: Antoine Fuqua"
+            data-actor="Diễn viên:Jaafar Jackson, Nia Long, Laura Harrier, Juliano Krue Valdi, cùng Miles Teller và Colman Domingo.">
+            <img src="anh/michael.png" alt="Michael" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:20px">
+                MICHAEL - khởi đầu của 1 biểu tượng
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)"
+             data-title="Anh hùng"
+            data-img="anh/anhhung.png"
+            data-time="122 phút"
+            data-country="Việt Nam"
+            data-rate="0"
+            data-date="24/04/2026"
+            data-desc="Câu chuyện phim theo chân Hùng (Thái Hòa) - người cha đơn thân kiêm tài xế taxi và đồng nghiệp hãng xe là Tuấn (Võ Tấn Phát) bị cuốn vào một phi vụ lừa đảo từ thiện tiền tỉ trong khi sinh mạng cô con gái nhỏ của anh đang nằm gọn trong tay tử thần."
+            data-director="Đạo diễn: Võ Thạch Thảo"
+            data-actor="Diễn viên:  Thái Hoà, Võ Tấn Phát, Đoàn Thế Vinh, Phương Thanh, Hồng Ánh, NSƯT Lê Thiện, Hoàng Minh Triết, Gia Tuệ...">
+            <img src="anh/anhhung.png" alt="Anh hùng"width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:40%">
+                Anh hùng 
+            </h3>
+        </div>
+        <div class="movie-card" onclick="openModal(this)" 
+             data-title="Siêu quậy marsupilami"
+            data-img="anh/marsupilami.png"
+            data-time="114 phút"
+            data-country="Mỹ"
+            data-rate="0"
+            data-date="24/04/2026"
+            data-desc="Để cứu lấy công việc, David Ticoule chấp nhận vận chuyển một kiện hàng bí ẩn từ Nam Mỹ về Pháp. Anh đưa con trai Léo và vợ cũ Tess đi cùng, vô tình kéo họ vào một phi vụ nguy hiểm mà chính anh cũng chưa kịp hiểu rõ. Mọi thứ nhanh chóng vượt khỏi tầm kiểm soát khi kiện hàng bị mở ra ngoài ý muốn. Bên trong là một sinh vật nhỏ bé, đáng yêu nhưng kéo theo hàng loạt rắc rối không tưởng. Từ một chuyến đi tưởng chừng đơn giản, hành trình trên biển bỗng biến thành chuỗi tình huống dở khóc dở cười. Giữa đại dương, họ phải học cách tin tưởng và sát cánh bên nhau để vượt qua hỗn loạn, đồng thời bảo vệ chính gia đình mình."
+            data-director="Đạo diễn:Philippe Lacheau "
+            data-actor="Diễn viên:  Philippe Lacheau, Jamel Debbouze, Tarek Boudali ">
+            <img src="anh/marsupilami.png" alt="siêu quậy marsupilami" width="225px" height="310px">
+            <h3 class="movie-title" style="margin-left:35px">
+                Siêu quậy marsupilami
+            </h3>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="fas fa-film"></i> Khám Phá Phim
+        </h2>
+    </div>
+
+    <div class="content-wrapper">
+
+        <aside class="sidebar">
+
+            <div class="filter-group">
+                <h3 class="filter-title">
+                    <i class="fas fa-tags"></i> Thể loại
+                </h3>
+
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Bom tấn</span>
+                        <span class="filter-count">215</span>
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Kinh dị</span>
+                        <span class="filter-count">145</span>
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Tình cảm</span>
+                        <span class="filter-count">142</span>
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Viễn tưởng</span>
+                        <span class="filter-count">110</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">
+                    <i class="fas fa-globe"></i>khu vực
+                </h3>
+
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>quận Đống Đa</span>
+                        <span class="filter-count">7</span>
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>quận Hai Bà Trưng</span>
+                        <span class="filter-count">12</span>
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>quận Cầu Giấy</span>
+                        <span class="filter-count">17</span>
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>quận Thanh Xuân</span>
+                        <span class="filter-count">8</span>
+                    </label>
+
+                </div>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%;">
+                <i class="fas fa-filter"></i> bộ lọc phim
+            </button>
+
+        </aside>
+
+        <div class="movie-grid" id="movie-rating">
+            <div class="movie-card" onclick="openModal(this)"
+                 data-title="Ngày xưa có một chuyện tình"
+                data-img="anh/chuyentinh.png"
+                data-time="135 phút"
+                data-country="Việt nam"
+                data-rate="8.9"
+                data-date="01/11/2024"
+                data-desc="Phim xoay quanh câu chuyện tình bạn, tình yêu giữa hai chàng trai và một cô gái từ thuở ấu thơ cho đến khi trưởng thành, phải đối mặt với những thử thách của số phận. Trải dài trong 4 giai đoạn từ năm 1987 - 2000, ba người bạn cùng tuổi - Vinh, Miền, Phúc đã cùng yêu, cùng bỡ ngỡ bước vào đời, va vấp và vượt qua."
+                data-director="Đạo diễn: Trịnh Đình Lê Minh "
+                data-actor="Diễn viên: Đỗ Nhật Hoàng, Ngọc Xuân, Avin Lu">
+                <img src="anh/chuyentinh.png" alt="Ngày xưa có 1 chuyện tình" width="225px" height="410px">
+                <h3 class="movie-title" style="margin-left:15px">
+                    Ngày xưa có một chuyện tình
+                </h3>
+            </div>
+            <div class="movie-card" onclick="openModal(this)"
+                 data-title="Nhà Bà Nữ"
+                data-img="anh/nhabanu.png"
+                data-time="123 phút"
+                data-country="Việt Nam"
+                data-rate="9.6"
+                data-date="01/02/2023"
+                data-desc="Gây tiếng vang lớn dịp Tết 2023, những câu chuyện rất đời trong gia đình bà Nữ mang về doanh thu 475 tỷ đồng, soán ngôi Bố Già trở thành phim điện ảnh chiếu rạp có doanh thu cao nhất Việt Nam."
+                data-director="Đạo diễn: Trấn Thành"
+                data-actor="Diễn viên: Khả Như,  Trấn Thành,  NSND Ngọc Giàu,  Lê Giang,  Ngân Quỳnh,  Song Luân,  NSƯT Công Ninh,  Uyển Ân,  Phương Lan,  NSND Việt Anh">
+                <img src="anh/nhabanu.png" alt="Nhà Bà nữ" width="225px" height="410px">
+                <h3 class="movie-title" style="margin-left:35%">
+                    Nhà Bà Nữ
+                </h3>
+            </div>
+            <div class="movie-card" onclick="openModal(this)"
+                 data-title="Hôn lễ của em"
+                data-img="anh/honlecuaem.png"
+                data-time="115 phút"
+                data-country="Trung Quốc"
+                data-rate="9.9"
+                data-date="04/10/2021"
+                data-desc="Hôn Lễ Của Em - My Love xoay quanh câu chuyện tình yêu của Châu Tiêu Tề - một vận động viên bơi lội và Vưu Vịnh Từ - một nữ sinh mới chuyển trường. Họ yêu nhau từ cái nhìn đầu tiên, Tiêu Tề luôn tôn thờ tình yêu này và âm thầm bảo vệ cô trước mọi tổn thương. Vậy nhưng, thật đắng cay khi cô lại rời đi không từ mà biệt. Từ đó về sau, chính là một cuộc tình kéo dài tận 15 năm. Khi họ gặp lại nhau cũng là lúc Vịnh Từ đã là cô dâu của người khác. Hôn lễ của em, cũng chính là lễ trưởng thành của anh."
+                data-director="Đạo diễn: Van Han "
+                data-actor="Diễn viên: Chương Nhược Nam,  Hứa Quang Hán">
+                <img src="anh/honlecuaem.png" alt="Hôn lễ của em" width="225px" height="410px">
+                <h3 class="movie-title" style="margin-left:35px">
+                    Hôn lễ của em
+                </h3>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="section-header">
+        <a href="#" class="view-all">
+            Trang Chủ<i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+
+
+</section>
+<hr>
+</main>
+
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-grid">
+
+            <div class="footer-section">
+                <h3>Topfilm</h3>
+                <p style="color: rgba(255,255,255,0.6); line-height: 1.8;">
+                    Topfilm là trang web miễn phí chất lượng cao, vietsub, thuyết minh 
+                    phụ đề chuẩn cho nhiều lứa tuổi.
+                </p>
+
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Thể loại phim</h3>
+                <ul>
+                    <li><a href="#">Phim Hành Động</a></li>
+                    <li><a href="#">Phim Kinh Dị</a></li>
+                    <li><a href="#">Phim Tình Cảm</a></li>
+                    <li><a href="#">Phim Hài kịch</a></li>
+                    <li><a href="#">Phim Viễn Tưởng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Khu vực</h3>
+                <ul>
+                    <li><a href="#">quận Đống Đa</a></li>
+                    <li><a href="#">quận Hai Bà Trưng</a></li>
+                    <li><a href="#">Phim Cầu Giấy</a></li>
+                    <li><a href="#">quận Thanh Xuân</a></li>
+                    <li><a href="#">quận Hoàng mai</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Hỗ trợ</h3>
+                <ul>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Báo lỗi</a></li>
+                    <li><a href="#">địa chỉ liên kết: http://127.0.0.1:5500/TopPhim.html </a></li>
+                </ul>
+            </div>
+
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; Topfilm - thiết kế Web - nhóm 9</p>
+            <p>&copy; Topfilm - thiết kế Web - nhóm 9</p>
         </div>
-      </div>
-    </footer>
-  </body>
+    </div>
+</footer>
+
+<script src="TopPhim.js"></script>
+
+
+</body>
 </html>
