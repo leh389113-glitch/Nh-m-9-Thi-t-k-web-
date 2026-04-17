@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Spongebob Theme</title>
+    <link rel="stylesheet" href="login-register.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="form-section">
+            <h1>ĐĂNG NHẬP</h1>
+            <form>
+                <div class="input-group">
+                    <label>Email / Tên người dùng</label>
+                    <input type="text" placeholder="Nhập Email hoặc tên của bạn" id="loginUsername">
+                </div>
+
+                <div class="input-group">
+                    <label>Mật Khẩu</label>
+                    <input type="password" placeholder="Nhập Mật Khẩu" id="loginPassword">
+                </div>
+                <button type="button" class="btn-submit" id="login" onclick="loginUser()">Đăng Nhập</button>
+            </form>
+
+            <p class="switch-page">Bạn chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+        </div>
+    </div>
+    <script src="login-register.js"></script>
+</body>
+</html>

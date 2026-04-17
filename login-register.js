@@ -1,26 +1,27 @@
 
-function showLogin() {
-  document.getElementById("loginForm").classList.add("active");
-  document.getElementById("registerForm").classList.remove("active");
-
-  document.querySelectorAll("button")[0].classList.add("active");
-  document.querySelectorAll("button")[1].classList.remove("active");
-}
-
-function showRegister() {
-  document.getElementById("registerForm").classList.add("active");
-  document.getElementById("loginForm").classList.remove("active");
-
-  document.querySelectorAll("button")[1].classList.add("active");
-  document.querySelectorAll("button")[0].classList.remove("active");
-}
-
-function register() {
+function registerUser() {
     let email = document.getElementById("registerEmail").value;
     let password = document.getElementById("registerPassword").value;
     let username = document.getElementById("registerUsername").value;
-    if(email.length < 6 || password.length <6 || username.length < 6) {
-        alert("Tên đăng nhập, email và mật khẩu phải có ít nhất 6 ký tự!");
+    let confirmPassword = document.getElementById("registerConfirmPassword").value;
+
+    if (!email || !password || !username || !confirmPassword) {
+        alert("Vui lòng nhập đầy đủ thông tin!");
+        return;
+    }
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+    alert("Email không đúng định dạng!");
+    return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Mật khẩu xác nhận không khớp!");
+        return;
+    }
+    if(password.length <6 || username.length < 6) {
+        alert("Tên đăng nhập và mật khẩu phải có ít nhất 6 ký tự!");
         return;
     }
     else{
@@ -45,41 +46,50 @@ function register() {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Đăng ký thành công!");
+    window.location.href = "login.html";
     }
 }
 
-function login(){
+function loginUser(){
     let username = document.getElementById("loginUsername").value;
     let password = document.getElementById("loginPassword").value;
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
     let foundUser = users.find(user => 
-        user.username === username && user.password === password
+        (user.username === username|| user.email===username) && user.password === password
     );
 
     if (foundUser) {
         localStorage.setItem("currentUser", JSON.stringify(foundUser));
         alert("Đăng nhập thành công!");
-        window.location.href = "Index.html";
+        window.location.href = "index.html";
     } else {
         alert("Tên đăng nhập hoặc mật khẩu không đúng!");
     }
 }
 
-function logout() {
+function logoutUser() {
     localStorage.removeItem("currentUser");
     alert("Đăng xuất thành công!");
     window.location.reload();
 }
 
+window.onload = function () {
+    let loginBtn = document.querySelector("#log-in");
+    let logoutBtn = document.querySelector("#log-out");
+    let signUpBtn = document.querySelector("#sign-up");
 
-window.onload = function() {
+    if (!loginBtn || !logoutBtn || !signUpBtn) return;
+
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
     if (currentUser) {
-        document.querySelector(".login").style.display = "none";
-        document.querySelector(".logout").style.display = "inline";
-    }else {
-        document.querySelector(".login").style.display = "inline";
-        document.querySelector(".logout").style.display = "none";
+        loginBtn.style.display = "none";
+        signUpBtn.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+    } else {
+        loginBtn.style.display = "inline-block";
+        signUpBtn.style.display = "inline-block";
+        logoutBtn.style.display = "none";
     }
 };
