@@ -1,0 +1,236 @@
+/* Thanh chọn ngày */
+.date-container {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+.date-btn {
+  min-width: 70px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.date-btn.active {
+  border: 2px solid #000;
+  font-weight: bold;
+  background: #fff;
+}
+
+/* Thanh chọn Tỉnh */
+.city-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.city-btn {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+}
+.city-btn.active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+/* Khu vực Rạp */
+.cinema-item {
+  background: #fff;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+.cinema-name {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+}
+.showtime-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.time-btn {
+  padding: 5px 15px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  border-radius: 3px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.time-btn:hover {
+  background: #eee;
+}
+.screen-header {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #3d3b3b;
+}
+
+.seat-map {
+  display: grid;
+  grid-template-columns: repeat(9, 35px); /* 9 cột ghế */
+  gap: 5px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ccc;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* Màu sắc các loại ghế */
+.seat.regular {
+  border-color: green;
+  color: green;
+}
+.seat.vip {
+  border-color: red;
+  color: red;
+}
+.seat.checked {
+  background-color: #b00;
+  color: white;
+  border: none;
+}
+.seat.selected {
+  background-color: #aaa;
+  color: white;
+}
+.box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+.box.regular {
+  border-color: green;
+  background-color: transparent;
+}
+
+.box.vip {
+  border-color: red;
+  background-color: transparent;
+}
+
+.box.checked {
+  background-color: rgb(71, 67, 67);
+  border: none;
+}
+
+/* Thanh Footer đen ở dưới cùng */
+.booking-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+}
+
+/* --- Trang Thanh Toán --- */
+#payment-selection {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+
+/* Bảng Tổng Kết */
+.payment-summary-box {
+  background-color: #fcf5e2; /* Màu nền vàng kem */
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+.summary-title {
+  text-align: center;
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 1px solid #eadca6;
+}
+.summary-details {
+  padding: 15px;
+}
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #333;
+}
+.summary-subtotal {
+  background-color: #d8d8d8; /* Dải màu xám */
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 15px;
+}
+.summary-total-title {
+  background-color: #e51a1a; /* Dải màu đỏ */
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px;
+  font-size: 16px;
+}
+.summary-final-total {
+  background-color: #d8d8d8;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
+}
+
+/* Bảng Phương Thức Thanh Toán */
+.payment-methods-box {
+  background-color: #fcf5e2;
+  border: 1px solid #ddd;
+}
+.method-title {
+  background-color: #d8d8d8;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-style: italic;
+}
+.method-list {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.method-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.method-item input {
+  transform: scale(1.2);
+  cursor: pointer;
+}
