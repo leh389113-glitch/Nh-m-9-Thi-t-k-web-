@@ -60,7 +60,7 @@ function login(){
     if (foundUser) {
         localStorage.setItem("currentUser", JSON.stringify(foundUser));
         alert("Đăng nhập thành công!");
-        window.location.href = "Venom.html";
+        window.location.href = "Index.html";
     } else {
         alert("Tên đăng nhập hoặc mật khẩu không đúng!");
     }
