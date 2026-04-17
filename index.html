@@ -1,420 +1,476 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topfilm - Xem Phim Chất Lượng Cao miễn phí</title>
-    <link href="TopPhim.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
+    <link href="TopPhim.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-<body>
-
-<header>
-    <div class="header-container">
+  <body>
+    <header>
+      <div class="header-container">
         <a href="#" class="logo">
-            <i class="fas fa-film"></i>
-            Topfilm.
+          <i class="fas fa-film"></i>
+          Topfilm.
         </a>
 
         <nav>
-            <ul>
-                <li><a href="#" class="active">Trang chủ</a></li>
-                <li><a href="#">Phim </a></li>
-                <li><a href="#">Rạp phim</a></li>
-                <li><a href="#">Suất chiếu</a></li>
-            </ul>
+          <ul>
+            <li><a href="#" class="active">Trang chủ</a></li>
+            <li><a href="#">Phim </a></li>
+            <li><a href="#">Rạp phim</a></li>
+            <li><a href="#">Suất chiếu</a></li>
+          </ul>
         </nav>
 
         <div class="search-box">
-            <input type="text" placeholder="Tìm kiếm phim...">
-            <button><i class="fas fa-search"></i></button>
+          <input type="text" placeholder="Tìm kiếm phim..." />
+          <button><i class="fas fa-search"></i></button>
         </div>
 
         <div class="user-actions">
-            <button id="log-in">Đăng nhập</button>
-            <button id="sign-up">Đăng ký</button>
+          <button id="log-in">Đăng nhập</button>
+          <button id="sign-up">Đăng ký</button>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
 
-<section class="hero">
-    <div class="hero-slide active">
-        <img src="anh/songhy.png" alt="Hero 1">
+    <section class="hero">
+      <div class="hero-slide active">
+        <img src="anh/songhy.png" alt="Hero 1" />
 
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <span class="hero-badge">HOT</span>
+          <span class="hero-badge">HOT</span>
 
-            <h1 class="hero-title">Song hỷ Lâm nguy</h1>
+          <h1 class="hero-title">Song hỷ Lâm nguy</h1>
 
-            <div class="hero-meta">
-                <span><i class="fas fa-star" style="color: #ffd700;"></i> 7.6</span>
-                <span><i class="fas fa-clock"></i> 113 phút</span>
-                <span><i class="fas fa-calendar"></i> 03/04/2026</span>
-                <span><i class="fas fa-globe"></i> Việt Nam</span>
-            </div>
+          <div class="hero-meta">
+            <span><i class="fas fa-star" style="color: #ffd700"></i> 7.6</span>
+            <span><i class="fas fa-clock"></i> 113 phút</span>
+            <span><i class="fas fa-calendar"></i> 03/04/2026</span>
+            <span><i class="fas fa-globe"></i> Việt Nam</span>
+          </div>
 
-            <p class="hero-description">
-                Hai lễ cưới, một sang trọng sa hoa, một đạm bạc dân dã, đáng lý sẽ được tổ chức đối diện nhau.
-                Rắc rối bắt đầu khi đội ngũ tổ chức của hai lễ cưới phát hiện ra danh sách khách mời của hai bên là giống nhau.
-                - Đạo diễn: Vũ Hà - Diễn viên: Dustin Nguyễn, Misthy, Trung Anh, Đinh Y Nhung, Jun Vũ, Hoàng Phi, Hynee, Khoai Vũ
-            </p>
+          <p class="hero-description">
+            Hai lễ cưới, một sang trọng sa hoa, một đạm bạc dân dã, đáng lý sẽ
+            được tổ chức đối diện nhau. Rắc rối bắt đầu khi đội ngũ tổ chức của
+            hai lễ cưới phát hiện ra danh sách khách mời của hai bên là giống
+            nhau. - Đạo diễn: Vũ Hà - Diễn viên: Dustin Nguyễn, Misthy, Trung
+            Anh, Đinh Y Nhung, Jun Vũ, Hoàng Phi, Hynee, Khoai Vũ
+          </p>
 
-            <div class="hero-buttons">
-                <button class="btn btn-play">
-                    <i class="fas fa-play"></i> Mua vé
-                </button>
-
-                <button class="btn btn-info">
-                    <i class="fas fa-info-circle"></i> Chi tiết
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<main>
-
-<div class="category-tabs">
-    <button class="category-tab active">Tất cả</button>
-    <button class="category-tab">Hành động</button>
-    <button class="category-tab">Kinh dị</button>
-    <button class="category-tab">Tình cảm</button>
-    <button class="category-tab">Hài hước</button>
-    <button class="category-tab">Viễn tưởng</button>
-    <button class="category-tab">Hoạt hình</button>
-    <button class="category-tab">Tâm lý</button>
-    <button class="category-tab">Phiêu lưu</button>
-</div>
-
-<!--phim đề xuất -->
-<section class="section">
-    <div class="section-header">
-        <h2 class="section-title">
-            <i class="fas fa-fire"></i> Phim Hot Trong Tuần
-        </h2>
-        <a href="#" class="view-all">
-            Trang chủ <i class="fas fa-chevron-right"></i>
-        </a>
-    </div>
-
-    <div class="movie-grid" id="hotMovies">
-        <div class="movie-card">
-            <img src="anh/anhduongcuame.png" alt="ánh dương của mẹ" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:30px">
-                Ánh dương của mẹ - Vietsub
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/demngayxame.png" alt="đếm ngày xa mẹ" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:30px">
-                Đếm ngày xa mẹ - Vietsub
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/vungdatluanhoi.png" alt="vùng đất luân hồi" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:30px">
-                Vùng đất luân hồi - Vietsub
-            </h3>
-        </div>
-    </div>
-</section>
-
-<!-- Đang khởi chiếu -->
-<section class="section">
-    <div class="section-header">
-        <h2 class="section-title">
-            <i class="fas fa-trophy"></i> Phim đang khởi chiếu
-        </h2>
-    </div>
-
-    <div class="movie-grid">
-
-        <div class="movie-card">
-            <img src="anh/quy.png" alt="quỷ ta kon" width="200px" style="margin-left: 20px">
-            <h3 class="movie-title" style="margin: 15px">
-                TA KHON - Quỷ đội lốt người
-            </h3>
-        </div>
-
-        <div class="movie-card">
-            <img src="anh/duoibongdienha.png" alt="Dưới Bóng Điện Hạ" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left: 25px; margin-top: 8px">
-                Dưới bóng điện hạ - vietsub
-            </h3>
-        </div>
-
-        <div class="movie-card">
-
-            <img src="anh/mario.png" alt="mario" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:30px">
-                Super mario - Thiên hà
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/baytien.png" alt="bẫy tiền" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:30px">
-                Bẫy tiền - Cú lừa tiền tỷ
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/kiki.png" alt="Phù thủy KIKI" width="225px" height="310px">
-            <h3 class="movie-title" >
-                Dịch vụ giao hàng của phù thủy KIKI
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/drama.png" alt="drama" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:30px">
-                Drama - Cú sốc
-            </h3>
-        </div>
-        
-
-    </div>
-
-
-</section>
-
-<!-- Phim sắp chiếu -->
-<section class="section">
-    <div class="section-header">
-        <h2 class="section-title">
-            <i class="fas fa-tv"></i> Phim Sắp chiếu
-        </h2>
-        <a href="#" class="view-all">
-            Xem tất cả <i class="fas fa-chevron-right"></i>
-        </a>
-    </div>
-
-    <div class="movie-grid">
-        <div class="movie-card">
-            <img src="anh/trangmau.png" alt="TRăng máu" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:25px">
-                Đại tiệc trăng máu 8
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img  src="anh/heonammong.png" alt="heo năm móng" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:35px">
-                Heo năm móng
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/rufus.png" alt="thủy quái rufus" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:30px">
-                RUFUS: Thủy quái học bơi
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/michael.png" alt="Michael" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:20px">
-                MICHAEL - khởi đầu của 1 biểu tượng
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/anhhung.png" alt="Anh hùng"width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:40%">
-                Anh hùng 
-            </h3>
-        </div>
-        <div class="movie-card">
-            <img src="anh/marsupilami.png" alt="siêu quậy marsupilami" width="225px" height="310px">
-            <h3 class="movie-title" style="margin-left:35px">
-                Siêu quậy marsupilami
-            </h3>
-        </div>
-    </div>
-
-</section>
-
-
-<section class="section">
-    <div class="section-header">
-        <h2 class="section-title">
-            <i class="fas fa-film"></i> Khám Phá Phim
-        </h2>
-    </div>
-
-    <div class="content-wrapper">
-
-        <aside class="sidebar">
-
-            <div class="filter-group">
-                <h3 class="filter-title">
-                    <i class="fas fa-tags"></i> Thể loại
-                </h3>
-
-                <div class="filter-options">
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>Bom tấn</span>
-                        <span class="filter-count">215</span>
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>Kinh dị</span>
-                        <span class="filter-count">145</span>
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>Tình cảm</span>
-                        <span class="filter-count">142</span>
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>Viễn tưởng</span>
-                        <span class="filter-count">110</span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="filter-group">
-                <h3 class="filter-title">
-                    <i class="fas fa-globe"></i>khu vực
-                </h3>
-
-                <div class="filter-options">
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>quận Đống Đa</span>
-                        <span class="filter-count">7</span>
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>quận Hai Bà Trưng</span>
-                        <span class="filter-count">12</span>
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>quận Cầu Giấy</span>
-                        <span class="filter-count">17</span>
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>quận Thanh Xuân</span>
-                        <span class="filter-count">8</span>
-                    </label>
-
-                </div>
-            </div>
-
-            <button class="btn btn-primary" style="width: 100%;">
-                <i class="fas fa-filter"></i> bộ lọc phim
+          <div class="hero-buttons">
+            <button class="btn btn-play">
+              <i class="fas fa-play"></i>
+              <a href="./datve/datve.html">Mua vé</a>
             </button>
 
-        </aside>
+            <button class="btn btn-info">
+              <i class="fas fa-info-circle"></i> Chi tiết
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="movie-grid" id="movie-rating">
-            <div class="movie-card">
-                <img src="anh/chuyentinh.png" alt="Ngày xưa có 1 chuyện tình" width="225px" height="410px">
-                <h3 class="movie-title" style="margin-left:15px">
-                    Ngày xưa có một chuyện tình
-                </h3>
-            </div>
-            <div class="movie-card">
-                <img src="anh/nhabanu.png" alt="Nhà Bà nữ" width="225px" height="410px">
-                <h3 class="movie-title" style="margin-left:35%">
-                    Nhà Bà Nữ
-                </h3>
-            </div>
-            <div class="movie-card">
-                <img src="anh/uochenlangchai.png" alt="ước hẹn làng chài" width="225px" height="410px">
-                <h3 class="movie-title" style="margin-left:35px">
-                    Ước hẹn làng chài
-                </h3>
-            </div>
+    <main>
+      <div class="category-tabs">
+        <button class="category-tab active">Tất cả</button>
+        <button class="category-tab">Hành động</button>
+        <button class="category-tab">Kinh dị</button>
+        <button class="category-tab">Tình cảm</button>
+        <button class="category-tab">Hài hước</button>
+        <button class="category-tab">Viễn tưởng</button>
+        <button class="category-tab">Hoạt hình</button>
+        <button class="category-tab">Tâm lý</button>
+        <button class="category-tab">Phiêu lưu</button>
+      </div>
 
+      <!--phim đề xuất -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-fire"></i> Phim Hot Trong Tuần
+          </h2>
+          <a href="#" class="view-all">
+            Trang chủ <i class="fas fa-chevron-right"></i>
+          </a>
         </div>
 
-    </div>
-</section>
+        <div class="movie-grid" id="hotMovies">
+          <div class="movie-card">
+            <img
+              src="anh/anhduongcuame.png"
+              alt="ánh dương của mẹ"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 30px">
+              Ánh dương của mẹ - Vietsub
+            </h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/demngayxame.png"
+              alt="đếm ngày xa mẹ"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 30px">
+              Đếm ngày xa mẹ - Vietsub
+            </h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/vungdatluanhoi.png"
+              alt="vùng đất luân hồi"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 30px">
+              Vùng đất luân hồi - Vietsub
+            </h3>
+          </div>
+        </div>
+      </section>
 
+      <!-- Đang khởi chiếu -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-trophy"></i> Phim đang khởi chiếu
+          </h2>
+        </div>
 
-<section class="section">
-    <div class="section-header">
-        <a href="#" class="view-all">
+        <div class="movie-grid">
+          <div class="movie-card">
+            <img
+              src="anh/quy.png"
+              alt="quỷ ta kon"
+              width="200px"
+              style="margin-left: 20px"
+            />
+            <h3 class="movie-title" style="margin: 15px">
+              TA KHON - Quỷ đội lốt người
+            </h3>
+          </div>
+
+          <div class="movie-card">
+            <img
+              src="anh/duoibongdienha.png"
+              alt="Dưới Bóng Điện Hạ"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 25px; margin-top: 8px">
+              Dưới bóng điện hạ - vietsub
+            </h3>
+          </div>
+
+          <div class="movie-card">
+            <img src="anh/mario.png" alt="mario" width="225px" height="310px" />
+            <h3 class="movie-title" style="margin-left: 30px">
+              Super mario - Thiên hà
+            </h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/baytien.png"
+              alt="bẫy tiền"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 30px">
+              Bẫy tiền - Cú lừa tiền tỷ
+            </h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/kiki.png"
+              alt="Phù thủy KIKI"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title">Dịch vụ giao hàng của phù thủy KIKI</h3>
+          </div>
+          <div class="movie-card">
+            <img src="anh/drama.png" alt="drama" width="225px" height="310px" />
+            <h3 class="movie-title" style="margin-left: 30px">
+              Drama - Cú sốc
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phim sắp chiếu -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-tv"></i> Phim Sắp chiếu
+          </h2>
+          <a href="#" class="view-all">
+            Xem tất cả <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+
+        <div class="movie-grid">
+          <div class="movie-card">
+            <img
+              src="anh/trangmau.png"
+              alt="TRăng máu"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 25px">
+              Đại tiệc trăng máu 8
+            </h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/heonammong.png"
+              alt="heo năm móng"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 35px">Heo năm móng</h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/rufus.png"
+              alt="thủy quái rufus"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 30px">
+              RUFUS: Thủy quái học bơi
+            </h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/michael.png"
+              alt="Michael"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 20px">
+              MICHAEL - khởi đầu của 1 biểu tượng
+            </h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/anhhung.png"
+              alt="Anh hùng"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 40%">Anh hùng</h3>
+          </div>
+          <div class="movie-card">
+            <img
+              src="anh/marsupilami.png"
+              alt="siêu quậy marsupilami"
+              width="225px"
+              height="310px"
+            />
+            <h3 class="movie-title" style="margin-left: 35px">
+              Siêu quậy marsupilami
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-film"></i> Khám Phá Phim
+          </h2>
+        </div>
+
+        <div class="content-wrapper">
+          <aside class="sidebar">
+            <div class="filter-group">
+              <h3 class="filter-title"><i class="fas fa-tags"></i> Thể loại</h3>
+
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" />
+                  <span>Bom tấn</span>
+                  <span class="filter-count">215</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="checkbox" />
+                  <span>Kinh dị</span>
+                  <span class="filter-count">145</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="checkbox" />
+                  <span>Tình cảm</span>
+                  <span class="filter-count">142</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="checkbox" />
+                  <span>Viễn tưởng</span>
+                  <span class="filter-count">110</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h3 class="filter-title"><i class="fas fa-globe"></i>khu vực</h3>
+
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" />
+                  <span>quận Đống Đa</span>
+                  <span class="filter-count">7</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="checkbox" />
+                  <span>quận Hai Bà Trưng</span>
+                  <span class="filter-count">12</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="checkbox" />
+                  <span>quận Cầu Giấy</span>
+                  <span class="filter-count">17</span>
+                </label>
+
+                <label class="filter-option">
+                  <input type="checkbox" />
+                  <span>quận Thanh Xuân</span>
+                  <span class="filter-count">8</span>
+                </label>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%">
+              <i class="fas fa-filter"></i> bộ lọc phim
+            </button>
+          </aside>
+
+          <div class="movie-grid" id="movie-rating">
+            <div class="movie-card">
+              <img
+                src="anh/chuyentinh.png"
+                alt="Ngày xưa có 1 chuyện tình"
+                width="225px"
+                height="410px"
+              />
+              <h3 class="movie-title" style="margin-left: 15px">
+                Ngày xưa có một chuyện tình
+              </h3>
+            </div>
+            <div class="movie-card">
+              <img
+                src="anh/nhabanu.png"
+                alt="Nhà Bà nữ"
+                width="225px"
+                height="410px"
+              />
+              <h3 class="movie-title" style="margin-left: 35%">Nhà Bà Nữ</h3>
+            </div>
+            <div class="movie-card">
+              <img
+                src="anh/uochenlangchai.png"
+                alt="ước hẹn làng chài"
+                width="225px"
+                height="410px"
+              />
+              <h3 class="movie-title" style="margin-left: 35px">
+                Ước hẹn làng chài
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <a href="#" class="view-all">
             Trang Chủ<i class="fas fa-chevron-right"></i>
-        </a>
-    </div>
+          </a>
+        </div>
+      </section>
+      <hr />
+    </main>
 
-
-
-
-</section>
-<hr>
-</main>
-
-
-<footer>
-    <div class="footer-container">
+    <footer>
+      <div class="footer-container">
         <div class="footer-grid">
+          <div class="footer-section">
+            <h3>Topfilm</h3>
+            <p style="color: rgba(255, 255, 255, 0.6); line-height: 1.8">
+              Topfilm là trang web miễn phí chất lượng cao, vietsub, thuyết minh
+              phụ đề chuẩn cho nhiều lứa tuổi.
+            </p>
 
-            <div class="footer-section">
-                <h3>Topfilm</h3>
-                <p style="color: rgba(255,255,255,0.6); line-height: 1.8;">
-                    Topfilm là trang web miễn phí chất lượng cao, vietsub, thuyết minh 
-                    phụ đề chuẩn cho nhiều lứa tuổi.
-                </p>
-
-                <div class="social-links" style="margin-top: 20px;">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
+            <div class="social-links" style="margin-top: 20px">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
             </div>
+          </div>
 
-            <div class="footer-section">
-                <h3>Thể loại phim</h3>
-                <ul>
-                    <li><a href="#">Phim Hành Động</a></li>
-                    <li><a href="#">Phim Kinh Dị</a></li>
-                    <li><a href="#">Phim Tình Cảm</a></li>
-                    <li><a href="#">Phim Hài kịch</a></li>
-                    <li><a href="#">Phim Viễn Tưởng</a></li>
-                </ul>
-            </div>
+          <div class="footer-section">
+            <h3>Thể loại phim</h3>
+            <ul>
+              <li><a href="#">Phim Hành Động</a></li>
+              <li><a href="#">Phim Kinh Dị</a></li>
+              <li><a href="#">Phim Tình Cảm</a></li>
+              <li><a href="#">Phim Hài kịch</a></li>
+              <li><a href="#">Phim Viễn Tưởng</a></li>
+            </ul>
+          </div>
 
-            <div class="footer-section">
-                <h3>Khu vực</h3>
-                <ul>
-                    <li><a href="#">quận Đống Đa</a></li>
-                    <li><a href="#">quận Hai Bà Trưng</a></li>
-                    <li><a href="#">Phim Cầu Giấy</a></li>
-                    <li><a href="#">quận Thanh Xuân</a></li>
-                    <li><a href="#">quận Hoàng mai</a></li>
-                </ul>
-            </div>
+          <div class="footer-section">
+            <h3>Khu vực</h3>
+            <ul>
+              <li><a href="#">quận Đống Đa</a></li>
+              <li><a href="#">quận Hai Bà Trưng</a></li>
+              <li><a href="#">Phim Cầu Giấy</a></li>
+              <li><a href="#">quận Thanh Xuân</a></li>
+              <li><a href="#">quận Hoàng mai</a></li>
+            </ul>
+          </div>
 
-            <div class="footer-section">
-                <h3>Hỗ trợ</h3>
-                <ul>
-                    <li><a href="#">Liên hệ</a></li>
-                    <li><a href="#">Điều khoản sử dụng</a></li>
-                    <li><a href="#">Chính sách bảo mật</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Báo lỗi</a></li>
-                    <li><a href="#">địa chỉ liên kết: http://127.0.0.1:5500/TopPhim.html </a></li>
-                </ul>
-            </div>
-
+          <div class="footer-section">
+            <h3>Hỗ trợ</h3>
+            <ul>
+              <li><a href="#">Liên hệ</a></li>
+              <li><a href="#">Điều khoản sử dụng</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Báo lỗi</a></li>
+              <li>
+                <a href="#"
+                  >địa chỉ liên kết: http://127.0.0.1:5500/TopPhim.html
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; Topfilm - thiết kế Web - nhóm 9</p>
+          <p>&copy; Topfilm - thiết kế Web - nhóm 9</p>
         </div>
-    </div>
-</footer>
-
-
-</body>
+      </div>
+    </footer>
+  </body>
 </html>
