@@ -62,7 +62,7 @@ function loginUser(){
     if (foundUser) {
         localStorage.setItem("currentUser", JSON.stringify(foundUser));
         alert("Đăng nhập thành công!");
-        window.location.href = "index.html";
+        window.location.href = "phim.html";
     } else {
         alert("Tên đăng nhập hoặc mật khẩu không đúng!");
     }
