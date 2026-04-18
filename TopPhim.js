@@ -138,5 +138,10 @@ searchInput.addEventListener("input", function () {
 });
 
 
+function openMap(){
+   window.location.href = "map.html";
+}
+
+
 
 
