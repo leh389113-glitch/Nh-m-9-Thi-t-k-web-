@@ -1,31 +1,26 @@
-/* ========== VÉ CỦA TÔI & ƯU ĐÃI ========== */
 .ticket-promo-section {
     max-width: 1400px;
     margin: 60px auto;
     padding: 0 20px;
 }
-
 .two-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 35px;
 }
-
 .ticket-card, .promo-card {
     background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
     border-radius: 24px;
     padding: 25px;
-    border: 1px solid rgba(229, 9, 20, 0.3);
+    border: 1px solid rgba(229, 9, 20, 0.4);
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .ticket-card:hover, .promo-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.5);
     border-color: #e50914;
 }
-
 .card-header {
     display: flex;
     align-items: center;
@@ -34,17 +29,14 @@
     padding-bottom: 15px;
     margin-bottom: 20px;
 }
-
 .card-header i {
     font-size: 32px;
     color: #e50914;
 }
-
 .card-header h3 {
     font-size: 26px;
     font-weight: bold;
 }
-
 .history-list {
     display: flex;
     flex-direction: column;
@@ -53,18 +45,14 @@
     overflow-y: auto;
     padding-right: 8px;
 }
-
 .history-item {
     background: rgba(255,255,255,0.08);
     border-radius: 18px;
     padding: 16px;
-    transition: all 0.2s;
 }
-
 .history-item:hover {
     background: rgba(255,255,255,0.15);
 }
-
 .movie-name {
     font-size: 18px;
     font-weight: bold;
@@ -72,24 +60,15 @@
     justify-content: space-between;
     margin-bottom: 10px;
 }
-
-.movie-name span:first-child i {
-    margin-right: 8px;
-    color: #e50914;
-}
-
 .status {
-    background: #27ae60;
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: bold;
 }
-
-.status.used {
-    background: #7f8c8d;
-}
-
+.status.da-xem { background: #27ae60; }
+.status.sap-chieu { background: #f39c12; }
+.status.da-huy { background: #7f8c8d; }
 .detail-info {
     display: flex;
     flex-wrap: wrap;
@@ -98,12 +77,10 @@
     color: #ddd;
     margin-bottom: 8px;
 }
-
 .detail-info i {
     width: 20px;
     color: #e50914;
 }
-
 .ticket-code {
     font-family: monospace;
     background: rgba(0,0,0,0.5);
@@ -111,15 +88,12 @@
     padding: 5px 10px;
     border-radius: 12px;
     font-size: 12px;
-    letter-spacing: 1px;
 }
-
 .promo-grid {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-
 .promo-item {
     background: linear-gradient(135deg, rgba(229,9,20,0.1), rgba(0,0,0,0.5));
     border-radius: 20px;
@@ -129,26 +103,17 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-    transition: 0.2s;
     border-left: 4px solid #e50914;
 }
-
 .promo-info h4 {
     font-size: 18px;
     margin-bottom: 6px;
 }
-
-.promo-info p {
-    font-size: 13px;
-    color: #ccc;
-}
-
 .promo-value {
     font-size: 22px;
     font-weight: bold;
     color: #f1c40f;
 }
-
 .copy-btn {
     background: #e50914;
     border: none;
@@ -157,29 +122,13 @@
     border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.2s;
 }
-
 .copy-btn:hover {
     background: #ff2e3a;
     transform: scale(1.02);
 }
-
 @media (max-width: 900px) {
     .two-columns {
         grid-template-columns: 1fr;
-        gap: 30px;
     }
-}
-
-.history-list::-webkit-scrollbar {
-    width: 5px;
-}
-.history-list::-webkit-scrollbar-track {
-    background: #2c2c3a;
-    border-radius: 10px;
-}
-.history-list::-webkit-scrollbar-thumb {
-    background: #e50914;
-    border-radius: 10px;
 }
