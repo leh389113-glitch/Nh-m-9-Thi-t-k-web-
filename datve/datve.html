@@ -102,17 +102,28 @@
     </div>
 
     <div class="booking-footer">
-      <button class="btn-prev" onclick="backToCinema()">PREVIOUS</button>
-      <div class="info">
-        <p id="movie-name-display">Rạp: Chưa chọn</p>
-
-        <p id="showtime-info">Suất chiếu: --:--</p>
-
-        <p id="seat-info">Ghế: Chưa chọn</p>
-      </div>
-      <div class="total-price">Tổng: <span id="price-amount">0</span> đ</div>
-      <button class="btn-next">NEXT</button>
+    <div class="footer-left">
+        <button class="btn-prev" onclick="backToCinema()">PREVIOUS</button>
     </div>
+
+    <div class="footer-center">
+        <div class="info-group">
+            <p id="movie-name-display">Rạp: Chưa chọn</p>
+            <p id="showtime-info">Suất chiếu: --:--</p>
+            <p id="seat-info">Ghế: Chưa chọn</p>
+        </div>
+        <div class="price-group">
+            <p>Tổng cộng: <span id="price-amount">0</span> đ</p>
+        </div>
+    </div>
+
+    <div class="footer-right">
+        <button class="btn-home" onclick="window.location.href='../phim.html'">
+            <i class="fa-solid fa-house"></i> TRỞ VỀ TRANG CHỦ
+        </button>
+        <button class="btn-next" onclick="goToCombo()">NEXT</button>
+    </div>
+</div>
     <script src="datve.js"></script>
   </body>
 </html>

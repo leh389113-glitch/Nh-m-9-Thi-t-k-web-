@@ -18,6 +18,11 @@ const cinemaData = {
   ],
 };
 
+const TICKET_PRICES = {
+  weekday: { regular: 80000, vip: 85000 }, // Thứ 2 - Thứ 5
+  weekend: { regular: 70000, vip: 75000 }, // Thứ 6 - CN
+};
+
 let comboData = { popcorn: 0, soda: 0 };
 const prices = { popcorn: 60000, soda: 35000 };
 
@@ -27,19 +32,26 @@ function renderDates() {
   const today = new Date();
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  container.innerHTML = "";
   for (let i = 0; i < 10; i++) {
     const d = new Date();
     d.setDate(today.getDate() + i);
 
     const btn = document.createElement("div");
     btn.className = `date-btn ${i === 0 ? "active" : ""}`;
-    btn.innerHTML = `<div>${(d.getMonth() + 1).toString().padStart(2, "0")}</div>
-                     <div style="font-size:20px; font-weight:bold">${d.getDate()}</div>
-                     <div>${days[d.getDay()]}</div>`;
+    // Lưu thứ vào attribute để dễ kiểm tra
+    btn.setAttribute("data-day", d.getDay());
+
+    btn.innerHTML = `
+            <div>${(d.getMonth() + 1).toString().padStart(2, "0")}</div>
+            <div style="font-size:20px; font-weight:bold">${d.getDate()}</div>
+            <div>${days[d.getDay()]}</div>
+        `;
 
     btn.onclick = function () {
       document.querySelector(".date-btn.active").classList.remove("active");
       this.classList.add("active");
+      updateBookingInfo(); // Cập nhật lại tiền khi đổi ngày
     };
     container.appendChild(btn);
   }
@@ -189,26 +201,34 @@ function changeQty(type, delta) {
 // 10. Hàm tính toán và cập nhật giao diện tổng tiền
 function updateBookingInfo() {
   const selectedSeats = document.querySelectorAll(".seat.selected");
-  const seatPrice = selectedSeats.length * 110000;
+
+  // Check xem đang chọn ngày thường hay cuối tuần
+  const activeDateBtn = document.querySelector(".date-btn.active");
+  const dayOfWeek = parseInt(activeDateBtn.getAttribute("data-day"));
+  // Thứ 6 (5), Thứ 7 (6), CN (0) là cuối tuần
+  const isWeekend = dayOfWeek === 0 || dayOfWeek === 5 || dayOfWeek === 6;
+  const priceList = isWeekend ? TICKET_PRICES.weekend : TICKET_PRICES.weekday;
+
+  let seatTotal = 0;
+  selectedSeats.forEach((seat) => {
+    if (seat.classList.contains("vip")) {
+      seatTotal += priceList.vip;
+    } else {
+      seatTotal += priceList.regular;
+    }
+  });
 
   const popcornPrice = (comboData.popcorn || 0) * prices.popcorn;
   const sodaPrice = (comboData.soda || 0) * prices.soda;
+  const total = seatTotal + popcornPrice + sodaPrice;
 
-  const total = seatPrice + popcornPrice + sodaPrice;
-
-  const priceDisplay = document.getElementById("price-amount");
-  if (priceDisplay) {
-    priceDisplay.innerText = total.toLocaleString();
-  }
+  document.getElementById("price-amount").innerText = total.toLocaleString();
 
   const seatDisplay = document.getElementById("seat-info");
   if (seatDisplay) {
     const seatNames = Array.from(selectedSeats).map((seat) => seat.innerText);
-    if (seatNames.length > 0) {
-      seatDisplay.innerText = "Ghế: " + seatNames.join(", ");
-    } else {
-      seatDisplay.innerText = "Ghế: Chưa chọn";
-    }
+    seatDisplay.innerText =
+      seatNames.length > 0 ? "Ghế: " + seatNames.join(", ") : "Ghế: Chưa chọn";
   }
 }
 
