@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử đặt vé - Topfilm</title>
+    <link rel="stylesheet" href="lich_su.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <a href="#" class="view-all" onclick="gotoTc()">
+        Trang chủ 
+    </a>
+    <div class="history-container">
+        <div class="history-header">
+            <h1><i class="fas fa-ticket-alt"></i> Lịch sử đặt vé</h1>
+            <p>Quản lý các vé đã đặt, sắp chiếu và đã hủy</p>
+        </div>
+
+        <!-- Thanh công cụ: tìm kiếm + lọc + sắp xếp -->
+        <div class="history-toolbar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Tìm theo tên phim...">
+            </div>
+            <div class="filter-group">
+                <span>Trạng thái:</span>
+                <select id="statusFilter">
+                    <option value="all">Tất cả</option>
+                    <option value="da-xem">Đã xem</option>
+                    <option value="sap-chieu">Sắp chiếu</option>
+                    <option value="da-huy">Đã hủy</option>
+                </select>
+            </div>
+            <div class="sort-group">
+                <span>Sắp xếp:</span>
+                <select id="sortSelect">
+                    <option value="date-desc">Mới nhất trước</option>
+                    <option value="date-asc">Cũ nhất trước</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Danh sách vé -->
+        <div id="historyList" class="history-list">
+            <!-- Các vé sẽ được render bằng JS -->
+        </div>
+
+        <!-- Thông báo khi không có vé -->
+        <div id="noResult" class="no-result" style="display: none;">
+            <i class="fas fa-inbox"></i>
+            <p>Không tìm thấy vé nào phù hợp.</p>
+        </div>
+    </div>
+
+    <script src="lich_su.js"></script>
+</body>
+</html>
