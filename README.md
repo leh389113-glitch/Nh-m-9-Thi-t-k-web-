@@ -22,36 +22,39 @@
 
 ### 📄 Tệp chính (Main files – điểm vào của ứng dụng)
 
-| Tệp tin               | Vai trò                                 |
-|-----------------------|------------------------------------------|
-| `phim.html`           | Trang chủ, hiển thị danh sách phim, hero slider, tìm kiếm, modal chi tiết phim. |
-| `login.html`          | Trang đăng nhập.                         |
-| `register.html`       | Trang đăng ký tài khoản.                 |
-| `datve.html`          | Trang đặt vé (chọn rạp, suất, ghế, bắp nước, thanh toán). |
-| `lich_su_uu_dai.html` | Trang lịch sử vé và danh sách ưu đãi.    |
-| `giave.html`          | Trang bảng giá vé chi tiết.              |
-| `phimdangchieu.html`  | Trang lịch chiếu phim (ngày 23/04).      |
-| `phimdangchieu2.html` | Trang lịch chiếu phim (ngày 26/04).      |
-| `phimdangchieu3.html` | Trang lịch chiếu phim (ngày 27/04).      |
-| `map.html`            | Hiển thị bản đồ vị trí rạp (NEU).        |
+| Tệp tin                     | Vai trò                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| `phim.html`                 | Trang chủ: hero slider, danh sách phim, tìm kiếm, modal chi tiết phim. |
+| `login.html`                | Trang đăng nhập.                                                        |
+| `register.html`             | Trang đăng ký tài khoản.                                                |
+| `datve.html`                | Trang đặt vé: chọn rạp, suất, ghế, bắp nước, thanh toán.                |
+| `lich_su.html`              | Trang lịch sử đặt vé (tìm kiếm, lọc, sắp xếp theo trạng thái/ngày).     |
+| `uudai.html`                | Trang danh sách các chương trình khuyến mãi (thẻ ảnh + mô tả).           |
+| `giave.html`                | Trang bảng giá vé chi tiết (theo khung giờ, loại ghế, đối tượng).       |
+| `phimdangchieu.html`        | Lịch chiếu ngày 23/04/2026.                                              |
+| `phimdangchieu2.html`       | Lịch chiếu ngày 26/04/2026.                                              |
+| `phimdangchieu3.html`       | Lịch chiếu ngày 27/04/2026.                                              |
+| `rapphim.html`              | Giới thiệu về rạp Topfilm (hình ảnh, mô tả, danh sách phim đang chiếu).  |
+| `map.html`                  | Hiển thị bản đồ Google Maps vị trí rạp (NEU).                           |
 
 ### 🧩 Tệp thành phần (Component files – CSS, JS, cấu hình)
 
 | Tệp tin                     | Thuộc phần                     | Mô tả |
 |-----------------------------|--------------------------------|--------|
-| `TopPhim.css`               | Trang chủ & danh sách phim     | Style chung cho header, hero, movie grid, modal, footer. |
-| `TopPhim.js`                | Trang chủ & danh sách phim     | Xử lý slider, modal chi tiết phim, tìm kiếm, chuyển trang. |
-| `login-register.css`        | Đăng nhập / Đăng ký            | Style riêng cho form login/register. |
+| `TopPhim.css`               | Trang chủ & danh sách phim     | Style header, hero, grid phim, modal, footer. |
+| `TopPhim.js`                | Trang chủ & danh sách phim     | Slider, modal phim, tìm kiếm, chuyển trang. |
+| `login-register.css`        | Đăng nhập / Đăng ký            | Form đăng nhập/đăng ký dạng thẻ trắng. |
 | `login-register.js`         | Đăng nhập / Đăng ký            | Validation, lưu user vào localStorage, kiểm tra đăng nhập. |
-| `datve.css`                 | Đặt vé & thanh toán            | Style cho sơ đồ ghế, combo, footer đặt vé, thanh toán. |
+| `datve.css`                 | Đặt vé & thanh toán            | Style chọn ngày, ghế, combo, footer đặt vé, thanh toán. |
 | `datve.js`                  | Đặt vé & thanh toán            | Logic chọn ngày, rạp, suất, ghế, bắp nước, tính tiền. |
-| `lich_su_uu_dai.css`        | Lịch sử vé & ưu đãi            | Style cho 2 cột vé và ưu đãi, hiệu ứng hover. |
-| `lich_su_uu_dai.js`         | Lịch sử vé & ưu đãi            | Xử lý sao chép mã khuyến mãi vào clipboard. |
-| `giave.css`                 | Bảng giá vé                    | Style cho bảng giá, footer riêng. |
+| `lich_su.css`               | Lịch sử vé                     | Style danh sách vé, toolbar lọc/tìm kiếm/sắp xếp. |
+| `lich_su.js`                | Lịch sử vé                     | Render vé từ dữ liệu mẫu, lọc theo trạng thái/tên phim/ngày. |
+| `uudai.css`                 | Ưu đãi                         | Style grid thẻ khuyến mãi, hiệu ứng hover, responsive. |
+| `giave.css`                 | Bảng giá vé                    | Style bảng giá, footer riêng. |
 | `giave.js`                  | Bảng giá vé                    | Chuyển hướng về trang chủ. |
 | `phimdangchieu.css`         | Lịch chiếu                     | Style cho danh sách phim theo ngày, nút suất chiếu. |
 | `phimdangchieu.js`          | Lịch chiếu                     | Xử lý active date, chuyển hướng giữa các ngày. |
-| `chitietphim.css`           | (Không dùng trực tiếp)         | Style dự phòng cho modal chi tiết phim (có thể tích hợp). |
+| `rapphim.css`               | Giới thiệu rạp                 | Style bố cục 2 cột, grid phim giới thiệu. |
 
 > **Ghi chú:**  
 > - Tất cả các tệp `.html` đều có thể mở trực tiếp bằng trình duyệt.  
