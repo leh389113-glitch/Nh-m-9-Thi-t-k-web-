@@ -10,8 +10,6 @@
 
 
 
-<body>
-
 <div id="movieModal" class="modal">
     <div class="modal-box">
         <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -28,12 +26,22 @@
 
                 <p></p>
                 <button class="btn-buy" onclick="goToBooking()">🎟 Mua vé</button>
-                <button class="btn-buy" onclick="gotoTrailer()">Trailer ▶</button>
+                <button class="btn-buy" onclick="openTrailer()">Trailer ▶</button>
 
                 <div class="meta-x"></div>
             </div>
         </div>
     </div>
+</div>
+
+<div id="trailerModal" class="modal">
+   <div class="modal-box">
+      <span class="close-btn" onclick="closeTrailer()">&times;</span>
+
+      <video width="100%" controls autoplay>
+         <source src="video/trailermario.mp4" type="video/mp4">
+      </video>
+   </div>
 </div>
 
 
@@ -608,6 +616,9 @@
         </div>
     </div>
 </footer>
+
+
+
 
 <script src="TopPhim.js"></script>
 
