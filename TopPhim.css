@@ -753,3 +753,16 @@ nav a:hover::after {
     background:red;
     transform:scale(1.2);
 }
+
+.trailer-box{
+    width:100%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+.trailer-box iframe{
+    width:100%;
+    height:500px;
+    border:none;
+    border-radius:15px;
+}
