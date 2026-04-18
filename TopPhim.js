@@ -155,3 +155,15 @@ let dots = document.querySelectorAll(".dot");
 dots.forEach(dot => dot.classList.remove("active"));
 
 dots[currentHero].classList.add("active");
+
+function openTrailer(){
+   document.getElementById("trailerModal").style.display = "block";
+}
+
+function closeTrailer(){
+   let video = document.querySelector("#trailerModal video");
+   video.pause();
+   video.currentTime = 0;
+
+   document.getElementById("trailerModal").style.display = "none";
+}
