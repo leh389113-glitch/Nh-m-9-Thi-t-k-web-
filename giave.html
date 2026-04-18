@@ -3,80 +3,113 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giá vé</title>
     <link rel="stylesheet" href="giave.css">
 </head>
+
 <body>
 
+<div class="price-container">
+    <a href="#" class="view-all" onclick="gotoTc()">
+        Trang chủ
+    </a>
 
-    <div class="price-container">
-        <a href="#" class="view-all" onclick="gotoTc()">
-            Trang chủ
-        </a>
-        <div class="price-header">
-
-            <h1>Giá vé</h1>
-            <p>(Áp dụng từ ngày 01/04/2026)</p>
-        </div>
-
-        <table class="price-table">
-            <thead>
-                <tr>
-                    <th rowspan="2" class="bg-blue main-title">GIÁ VÉ 2D<br>2D TICKET PRICE</th>
-                    <th colspan="3" class="bg-blue-light">Từ thứ 2 đến thứ 5<br>From Monday to Thursday</th>
-                    <th colspan="3" class="bg-blue-light">Thứ 6, 7, CN và ngày Lễ<br>Friday, Saturday, Sunday & Public Holiday</th>
-                </tr>
-                <tr>
-                    <th class="text-green">Ghế thường<br>Standard</th>
-                    <th class="text-yellow">Ghế VIP<br>VIP</th>
-                    <th class="text-red">Ghế đôi<br>Sweetbox</th>
-                    <th class="text-green">Ghế thường<br>Standard</th>
-                    <th class="text-yellow">Ghế VIP<br>VIP</th>
-                    <th class="text-red">Ghế đôi<br>Sweetbox</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="bg-dark-grey title-cell">NGƯỜI LỚN</td>
-                    <td colspan="6" class="bg-dark-grey"></td> </tr>
-                <tr>
-                    <td class="time-cell">Trước 12:00<br>Before 12:00</td>
-                    <td class="text-green">55.000đ</td>
-                    <td class="text-yellow">65.000đ</td>
-                    <td class="text-red">140.000đ</td>
-                    <td class="text-green">70.000đ</td>
-                    <td class="text-yellow">80.000đ</td>
-                    <td class="text-red">170.000đ</td>
-                </tr>
-                <tr>
-                    <td class="time-cell">Từ 12:00 đến trước 17:00<br>From 12:00 to before 17:00</td>
-                    <td class="text-green">70.000đ</td>
-                    <td class="text-yellow">75.000đ</td>
-                    <td class="text-red">160.000đ</td>
-                    <td class="text-green">80.000đ</td>
-                    <td class="text-yellow">85.000đ</td>
-                    <td class="text-red">180.000đ</td>
-                </tr>
-                <tr class="bg-u22">
-                    <td class="title-cell border-white">THÀNH VIÊN U22</td>
-                    <td colspan="6" class="highlight-text">Đồng giá 55.000đ /vé 2D từ Thứ 2 đến Thứ 6</td>
-                </tr>
-                <tr class="bg-priority">
-                    <td class="title-cell border-white small-text">TRẺ EM, NGƯỜI CAO TUỔI...</td>
-                    <td colspan="6" class="highlight-text">Giảm 20%</td>
-                </tr>
-                <tr class="bg-disability">
-                    <td class="title-cell border-white">NGƯỜI KHUYẾT TẬT NẶNG</td>
-                    <td colspan="6" class="highlight-text">Giảm 50%</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="price-header">
+        <h1>Giá vé</h1>
+        <p>(Áp dụng từ ngày 01/04/2026)</p>
     </div>
 
+    <table class="price-table">
+        <thead>
+            <tr>
+                <th rowspan="2" class="bg-blue main-title">
+                    GIÁ VÉ 2D<br>2D TICKET PRICE
+                </th>
+
+                <th colspan="2" class="bg-blue-light">
+                    Từ thứ 2 đến thứ 5<br>
+                    From Monday to Thursday
+                </th>
+
+                <th colspan="2" class="bg-blue-light">
+                    Thứ 6, 7, CN và ngày Lễ<br>
+                    Friday, Saturday, Sunday & Public Holiday
+                </th>
+            </tr>
+
+            <tr>
+                <th class="text-green">Ghế thường<br>Standard</th>
+                <th class="text-yellow">Ghế VIP<br>VIP</th>
+
+                <th class="text-green">Ghế thường<br>Standard</th>
+                <th class="text-yellow">Ghế VIP<br>VIP</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="bg-dark-grey title-cell">NGƯỜI LỚN</td>
+                <td colspan="4" class="bg-dark-grey"></td>
+            </tr>
+
+            <tr>
+                <td class="time-cell">
+                    Trước 12:00<br>
+                    Before 12:00
+                </td>
+
+                <td class="text-green">55.000đ</td>
+                <td class="text-yellow">65.000đ</td>
+
+                <td class="text-green">70.000đ</td>
+                <td class="text-yellow">80.000đ</td>
+            </tr>
+
+            <tr>
+                <td class="time-cell">
+                    Từ 12:00 đến trước 17:00<br>
+                    From 12:00 to before 17:00
+                </td>
+
+                <td class="text-green">70.000đ</td>
+                <td class="text-yellow">75.000đ</td>
+
+                <td class="text-green">80.000đ</td>
+                <td class="text-yellow">85.000đ</td>
+            </tr>
+
+            <tr class="bg-u22">
+                <td class="title-cell border-white">THÀNH VIÊN U22</td>
+                <td colspan="4" class="highlight-text">
+                    Đồng giá 55.000đ / vé 2D từ Thứ 2 đến Thứ 6
+                </td>
+            </tr>
+
+            <tr class="bg-priority">
+                <td class="title-cell border-white small-text">
+                    TRẺ EM, NGƯỜI CAO TUỔI...
+                </td>
+                <td colspan="4" class="highlight-text">
+                    Giảm 20%
+                </td>
+            </tr>
+
+            <tr class="bg-disability">
+                <td class="title-cell border-white">
+                    NGƯỜI KHUYẾT TẬT NẶNG
+                </td>
+                <td colspan="4" class="highlight-text">
+                    Giảm 50%
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <footer class="main-footer">
     <div class="footer-container">
+
         <div class="footer-nav">
             <a href="#">Chính sách</a>
             <a href="#">Lịch chiếu</a>
@@ -88,27 +121,30 @@
 
         <div class="footer-icons">
             <div class="social-group">
-                <img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" alt="Facebook">
-                <img src="https://img.icons8.com/color/48/000000/zalo.png" alt="Zalo">
-                <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="Youtube">
+                <img src="https://img.icons8.com/fluent/48/000000/facebook-new.png">
+                <img src="https://img.icons8.com/color/48/000000/zalo.png">
+                <img src="https://img.icons8.com/color/48/000000/youtube-play.png">
             </div>
+
             <div class="app-group">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="store-badge">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="store-badge">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="store-badge">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" class="store-badge">
             </div>
         </div>
 
         <div class="footer-info">
             <p>Chủ sở hữu: Nhóm 9 TK web</p>
             <p>Chịu trách nhiệm: Trần Trung Hiếu.</p>
-            <p>Địa chỉ: 207 đường Giải Phóng, phường Bạch Mai, Hà Nội, Việt Nam  - Điện thoại: (84)24.36.280.280</p>
+            <p>Địa chỉ: 207 Giải Phóng, Hà Nội</p>
         </div>
 
         <div class="footer-copyright">
-            @2024. Nhóm 9 Thiết kế Web đặt vé xem phim
+            @2024 Nhóm 9 Thiết kế Web đặt vé xem phim
         </div>
+
     </div>
 </footer>
+
 <script src="giave.js"></script>
 
 </body>
