@@ -1,0 +1,150 @@
+:root {
+    --primary-color: #e50914; /* Màu đỏ đặc trưng của rạp */
+    --bg-dark: #121212;      /* Nền tối */
+    --bg-card: #1c1c1c;      /* Nền thẻ */
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --font-main: 'Montserrat', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: var(--font-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Tiêu đề phần Khuyến mãi */
+.promo__heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.promo__heading::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto;
+}
+
+/* Hệ thống Grid */
+.promo__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* KHUNG THẺ (Đã gộp đúng class) */
+.promo__card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden; /* Quan trọng: Cắt ảnh tràn viền bo góc */
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.promo__card:hover {
+    transform: translateY(-10px);
+    border-color: #333;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* XỬ LÝ ẢNH TRÀN KHUNG & TỶ LỆ CHUẨN */
+.promo__image-wrapper {
+    width: 100%;
+    padding-top: 62.5%; /* Khóa tỷ lệ ảnh 16:10, ảnh to nhỏ đều bằng nhau */
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.promo__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Chống méo ảnh */
+    display: block;
+    transition: var(--transition);
+}
+
+.promo__card:hover .promo__img {
+    transform: scale(1.08); /* Zoom nhẹ xịn xò khi hover */
+}
+
+/* Nội dung thông tin */
+.promo__info {
+    padding: 20px;
+    flex-grow: 1; /* Đẩy nội dung chiếm hết khoảng trống, các thẻ sẽ cao bằng nhau */
+    display: flex;
+    flex-direction: column;
+}
+
+.promo__date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.promo__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text-main);
+    text-transform: uppercase;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Cắt chữ nếu tiêu đề quá 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+    .promo__heading {
+        font-size: 1.8rem;
+    }
+    .promo__grid {
+        grid-template-columns: 1fr; /* 1 cột trên điện thoại */
+    }
+}
+
+.view-all {
+
+    color: #fcfcfc;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.3s;
+}
+
+.view-all:hover {
+    gap: 10px;
+    transform: translateY(2px);
+}
