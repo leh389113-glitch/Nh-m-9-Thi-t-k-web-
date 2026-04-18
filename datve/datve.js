@@ -135,7 +135,7 @@ function renderSeats() {
 // 6. Hàm quay lại chọn rạp
 function backToCinema() {
   document.getElementById("seat-selection").style.display = "none";
-  document.getElementById("main-footer").style.display = "none"; // Ẩn footer đi
+  document.getElementById("main-footer").style.display = "none";
 
   document.getElementById("date-list-container").style.display = "flex";
   document.getElementById("city-container").style.display = "flex";
