@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lịch Chiếu Phim - Topfilm</title>
+    <link rel="stylesheet" href="phimdangchieu.css">
+</head>
+<body>
+
+        <a href="#" class="view-all" onclick="gotoTc()">
+            Trang chủ 
+        </a>
+  
+<div class="container">
+    <h2 class="section-title" >Phim đang chiếu</h2>
+
+    <div class="date-selector">
+        <button class="date-btn" onclick="gotoPdc1()">23-4-2026</button>
+        <button class="date-btn active">26-4-2026</button>
+        <button class="date-btn" onclick="gotoPdc3()">27-4-2026</button>
+
+    </div>
+
+    <div class="movie-grid" id="movieList">
+        <div class="movie-card">
+            <div class="movie-poster">
+                <img src="anh/mario.png" alt="Poster">
+            </div>
+            <div class="movie-info">
+                <span class="movie-format">2D</span>
+                <p class="movie-meta">Hoạt hình</p>
+                <h3 class="movie-name">Super Mario - Thiên Hà - T12</h3>
+                <p class="movie-origin">Xuất xứ: Mỹ</p>
+                <p class="movie-release">Khởi chiếu: 24/04/2026</p>
+                <p class="movie-desc">T12 - Phim phổ biến đến người xem từ 12 tuổi trở lên.</p>
+                
+                <div class="showtime-container">
+                    <p class="showtime-title">Lịch chiếu</p>
+                    <div class="showtimes">
+                        <span class="time-slot">09:30</span>
+                        <span class="time-slot">10:10</span>
+                        <span class="time-slot">11:20</span>
+                        <span class="time-slot">12:20</span>
+                        <span class="time-slot">13:30</span>
+                        <span class="time-slot">14:30</span>
+                        <span class="time-slot">18:30</span>
+                        <span class="time-slot">20:30</span>
+                        <span class="time-slot">20:45</span>
+                        <span class="time-slot">21:30</span>
+                        <span class="time-slot">22:30</span>
+                        <span class="time-slot">23:45</span>
+                        <span class="time-slot">23:55</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+        
+
+
+        <div class="movie-card">
+            <div class="movie-poster">
+                <img src="anh/vungdatluanhoi.png" alt="Poster">
+            </div>
+            <div class="movie-info">
+                <span class="movie-format">2D</span>
+                <p class="movie-meta">Hoạt hình</p>
+                <h3 class="movie-name">Vùng Đất luân hồi- T10</h3>
+                <p class="movie-origin">Xuất xứ: Trung Quốc</p>
+                <p class="movie-release">Khởi chiếu: 24/04/2026</p>
+                <p class="movie-desc">T10 - Phim phổ biến đến người xem từ 10 tuổi trở lên.</p>
+                
+                <div class="showtime-container">
+                    <p class="showtime-title">Lịch chiếu</p>
+                    <div class="showtimes">
+                        <span class="time-slot">07:30</span>
+                        <span class="time-slot">10:10</span>
+                        <span class="time-slot">11:10</span>
+                        <span class="time-slot">12:20</span>
+                        <span class="time-slot">19:45</span>
+                        <span class="time-slot">20:55</span>
+                        <span class="time-slot">21:55</span>
+                        <span class="time-slot">22:25</span>
+                        <span class="time-slot">23:50</span>
+                        <span class="time-slot">23:55</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="movie-card">
+            <div class="movie-poster">
+                <img src="anh/baytien.png" alt="Poster">
+            </div>
+            <div class="movie-info">
+                <span class="movie-format">2D</span>
+                <p class="movie-meta">Tâm lý, hành động</p>
+                <h3 class="movie-name">Bẫy tiền - cú lừa tiền tỷ - T16</h3>
+                <p class="movie-origin">Xuất xứ: Việt Nam</p>
+                <p class="movie-release">Khởi chiếu: 25/04/2026</p>
+                <p class="movie-desc">T16 - Phim phổ biến đến người xem từ 16 tuổi trở lên.</p>
+                
+                <div class="showtime-container">
+                    <p class="showtime-title">Lịch chiếu</p>
+                    <div class="showtimes">
+                        <span class="time-slot">09:30</span>
+                        <span class="time-slot">10:10</span>
+                        <span class="time-slot">11:20</span>
+                        <span class="time-slot">12:20</span>
+                        <span class="time-slot">12:55</span>
+                        <span class="time-slot">22:25</span>
+                        <span class="time-slot">23:50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="movie-card">
+            <div class="movie-poster">
+                <img src="anh/duoibongdienha.png" alt="Poster">
+            </div>
+            <div class="movie-info">
+                <span class="movie-format">2D</span>
+                <p class="movie-meta">Cổ trang</p>
+                <h3 class="movie-name">Dưới bóng điện hạ - T16</h3>
+                <p class="movie-origin">Xuất xứ: Hàn Quốc</p>
+                <p class="movie-release">Khởi chiếu: 25/04/2026</p>
+                <p class="movie-desc">T16 - Phim phổ biến đến người xem từ 16 tuổi trở lên.</p>
+                
+                <div class="showtime-container">
+                    <p class="showtime-title">Lịch chiếu</p>
+                    <div class="showtimes">
+                        <span class="time-slot">09:30</span>
+                        <span class="time-slot">10:10</span>
+                        <span class="time-slot">11:20</span>
+                        <span class="time-slot">12:20</span>
+                        <span class="time-slot">13:30</span>
+                        <span class="time-slot">14:45</span>
+                        <span class="time-slot">16:30</span>
+                        <span class="time-slot">18:30</span>
+                        <span class="time-slot">19:45</span>
+                        <span class="time-slot">20:55</span>
+                        <span class="time-slot">22:05</span>
+                        <span class="time-slot">22:25</span>
+                        <span class="time-slot">23:50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="movie-poster">
+                <img src="anh/kiki.png" alt="Poster">
+            </div>
+            <div class="movie-info">
+                <span class="movie-format">2D</span>
+                <p class="movie-meta">Anime</p>
+                <h3 class="movie-name">Dịch vụ giao hàng của phù thủy KIKI - T10</h3>
+                <p class="movie-origin">Xuất xứ: Nhật Bản</p>
+                <p class="movie-release">Khởi chiếu: 24/04/2026</p>
+                <p class="movie-desc">T10 - Phim phổ biến đến người xem từ 10 tuổi trở lên.</p>
+                
+                <div class="showtime-container">
+                    <p class="showtime-title">Lịch chiếu</p>
+                    <div class="showtimes">
+                        <span class="time-slot">09:30</span>
+                        <span class="time-slot">10:10</span>
+                        <span class="time-slot">16:30</span>
+                        <span class="time-slot">18:30</span>
+                        <span class="time-slot">19:45</span>
+                        <span class="time-slot">20:55</span>
+                        <span class="time-slot">21:55</span>
+                        <span class="time-slot">22:25</span>
+                        <span class="time-slot">23:50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<script > 
+    function gotoPdc1(){
+        window.location.href="phimdangchieu.html";
+    }
+    function gotoPdc3(){
+        window.location.href="phimdangchieu3.html";
+    }
+    function gotoTc(){
+    window.location.href="phim.html";
+}
+</script>
+</body>
+</html>
