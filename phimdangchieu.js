@@ -15,3 +15,12 @@ dateButtons.forEach(button => {
 function gotoTc(){
     window.location.href="phim.html";
 }
+function gotoPdc2(){
+    window.location.href="phimdangchieu2.html";
+}
+function gotoPdc3(){
+    window.location.href="phimdangchieu3.html";
+}
+function gotoPdc1(){
+    window.location.href="phimdangchieu.html";
+}
