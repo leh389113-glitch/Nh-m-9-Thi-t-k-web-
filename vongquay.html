@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vòng Quay May Mắn - Topfilm</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Segoe UI;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(135deg,#0f0f1a,#1f1f2e,#13131d);
+overflow:hidden;
+color:white;
+}
+
+/* nền sao */
+body::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:
+radial-gradient(white 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.08;
+animation:movebg 30s linear infinite;
+}
+
+@keyframes movebg{
+from{transform:translate(0,0);}
+to{transform:translate(-300px,-300px);}
+}
+
+.container{
+position:relative;
+z-index:2;
+text-align:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+padding:35px;
+border-radius:25px;
+box-shadow:0 0 40px rgba(255,0,0,.15);
+width:470px;
+}
+
+h1{
+font-size:34px;
+margin-bottom:20px;
+color:#ffd700;
+}
+
+/* pointer */
+.pointer{
+width:0;
+height:0;
+border-left:22px solid transparent;
+border-right:22px solid transparent;
+border-top:40px solid #fff;
+margin:auto;
+position:relative;
+z-index:3;
+filter:drop-shadow(0 0 8px white);
+}
+
+/* vòng quay */
+.wheel-wrap{
+position:relative;
+margin-top:-10px;
+}
+
+#wheel{
+width:360px;
+height:360px;
+border-radius:50%;
+margin:auto;
+border:10px solid #fff;
+box-shadow:
+0 0 25px rgba(255,255,255,.4),
+0 0 50px rgba(255,0,0,.3);
+transition:6s cubic-bezier(.17,.67,.11,1);
+background:
+conic-gradient(
+#ff1744 0deg 45deg,
+#ff9100 45deg 90deg,
+#00e676 90deg 135deg,
+#2979ff 135deg 180deg,
+#aa00ff 180deg 225deg,
+#ff4081 225deg 270deg,
+#00bcd4 270deg 315deg,
+#ffd600 315deg 360deg
+);
+position:relative;
+overflow:hidden;
+}
+
+/* tâm vòng */
+.center-dot{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:60px;
+height:60px;
+background:#fff;
+border-radius:50%;
+z-index:5;
+box-shadow:0 0 20px rgba(255,255,255,.8);
+}
+
+/* text phần quà */
+.label{
+position:absolute;
+width:100%;
+top:44%;
+left:0;
+text-align:center;
+font-weight:bold;
+font-size:14px;
+transform-origin:center;
+color:white;
+text-shadow:1px 1px 3px black;
+}
+
+.controls{
+margin-top:25px;
+display:flex;
+gap:12px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+button{
+padding:13px 22px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+transition:.3s;
+}
+
+.spin-btn{
+background:#e50914;
+color:white;
+}
+
+.spin-btn:hover{
+transform:translateY(-2px);
+background:red;
+}
+
+.home-btn{
+background:white;
+color:black;
+}
+
+.home-btn:hover{
+transform:translateY(-2px);
+}
+
+.reset-btn{
+background:#333;
+color:white;
+}
+
+.reset-btn:hover{
+background:#555;
+}
+
+#result{
+margin-top:22px;
+font-size:26px;
+font-weight:bold;
+color:#ffd700;
+min-height:45px;
+}
+
+.note{
+margin-top:12px;
+font-size:14px;
+opacity:.8;
+}
+
+.count{
+margin-top:10px;
+font-size:15px;
+color:#00e676;
+}
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.popup-box{
+background:#111;
+padding:35px;
+border-radius:20px;
+text-align:center;
+width:420px;
+box-shadow:0 0 35px rgba(255,0,0,.3);
+animation:show .35s ease;
+}
+
+@keyframes show{
+from{transform:scale(.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.popup h2{
+font-size:34px;
+color:#ffd700;
+margin-bottom:15px;
+}
+
+.popup p{
+font-size:26px;
+margin-bottom:20px;
+}
+
+.claim-btn{
+background:#e50914;
+color:white;
+padding:12px 26px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.claim-btn:hover{
+background:red;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎁 Vòng Quay May Mắn</h1>
+
+<div class="pointer"></div>
+
+<div class="wheel-wrap">
+
+<div id="wheel">
+
+<div class="label" style="transform:rotate(22deg) translateY(-145px)">10%</div>
+<div class="label" style="transform:rotate(67deg) translateY(-145px)">20%</div>
+<div class="label" style="transform:rotate(112deg) translateY(-145px)">FREE</div>
+<div class="label" style="transform:rotate(157deg) translateY(-145px)">Combo</div>
+<div class="label" style="transform:rotate(202deg) translateY(-145px)">50%</div>
+<div class="label" style="transform:rotate(247deg) translateY(-145px)">X2 Vé</div>
+<div class="label" style="transform:rotate(292deg) translateY(-145px)">May Mắn</div>
+<div class="label" style="transform:rotate(337deg) translateY(-145px)">Bắp</div>
+
+</div>
+
+<div class="center-dot"></div>
+
+</div>
+
+<div class="controls">
+<button class="spin-btn" onclick="spinWheel()">
+<i class="fas fa-play"></i> Quay ngay
+</button>
+
+<button class="reset-btn" onclick="resetSpin()">
+<i class="fas fa-rotate"></i> Reset
+</button>
+
+<button class="home-btn" onclick="gotoUudai()">
+<i class="fas fa-house" ></i> Quay lại
+</button>
+</div>
+
+<div class="count" id="count"></div>
+<div id="result"></div>
+
+<div class="note">Mỗi ngày được quay 1 lần</div>
+
+</div>
+
+<!-- popup quà -->
+<div class="popup" id="popup">
+<div class="popup-box">
+<h2>🎉 Chúc mừng</h2>
+<p id="giftText"></p>
+<button class="claim-btn" onclick="claimGift()">Nhận quà</button>
+</div>
+</div>
+
+<script>
+
+let wheel = document.getElementById("wheel");
+let popup = document.getElementById("popup");
+let giftText = document.getElementById("giftText");
+let count = document.getElementById("count");
+
+let rotate = 0;
+
+let gifts = [
+"Voucher giảm 10%",
+"Voucher giảm 20%",
+"1 Vé Miễn Phí",
+"Combo Bắp + Nước",
+"Voucher giảm 50%",
+"2 Vé Xem Phim",
+"Chúc bạn may mắn",
+"1 Bắp Rang Miễn Phí"
+];
+
+function updateCount(){
+let used = localStorage.getItem("spinUsed");
+if(used=="yes"){
+count.innerHTML="❌ Hôm nay bạn đã quay rồi";
+}else{
+count.innerHTML="✅ Bạn còn 1 lượt quay hôm nay";
+}
+}
+updateCount();
+
+function spinWheel(){
+
+if(localStorage.getItem("spinUsed")=="yes"){
+alert("Hôm nay bạn đã quay rồi!");
+return;
+}
+
+let random = Math.floor(Math.random()*8);
+
+let deg = 3600 + random*45;
+
+rotate += deg;
+
+wheel.style.transform = `rotate(${rotate}deg)`;
+
+document.getElementById("result").innerHTML="Đang quay...";
+
+setTimeout(()=>{
+giftText.innerHTML = gifts[random];
+popup.style.display="flex";
+document.getElementById("result").innerHTML="";
+localStorage.setItem("spinUsed","yes");
+updateCount();
+},6200);
+
+}
+
+function claimGift(){
+popup.style.display="none";
+document.getElementById("result").innerHTML="🎁 " + giftText.innerHTML;
+}
+
+function resetSpin(){
+localStorage.removeItem("spinUsed");
+document.getElementById("result").innerHTML="";
+updateCount();
+}
+function gotoUudai(){
+    window.location.href="uudai.html";
+}
+
+</script>
+
+</body>
+</html>
