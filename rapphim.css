@@ -139,6 +139,12 @@ body {
     .movie-grid { grid-template-columns: 1fr; }
 }
 
+.section-title {
+    text-align: center;
+    color: #ffcccc;
+    margin-bottom: 20px;
+}
+
 .view-all {
 
     color: #fcfcfc;
